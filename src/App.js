@@ -1,5 +1,6 @@
-﻿    export default function App() {
+﻿import Movie_list from './components/Movie_list'
+    export default function App() {
         return (
-        <p>Test</p>
+        <div className="main_content"><Movie_list></Movie_list></div>
         );
     }

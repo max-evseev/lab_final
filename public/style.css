@@ -3,7 +3,7 @@ overflow-anchor: none;
 overflow-x: clip;
 overflow-y: hidden;
 margin: 0;
-color: rgb(255, 225, 90);
+color: rgb(255, 225, 95);
 background-color: rgb(25, 0, 50);
 font-family: 'Century Gothic';
 font-size: 30px;
@@ -42,4 +42,9 @@ padding-left: 25px;
 img.logo {
 width: 0.9em;
 height: 0.9em;
+}
+main {
+overflow-y: auto;
+height: 85vh;
+padding-bottom: 15vh;
 }
