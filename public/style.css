@@ -1,0 +1,45 @@
+﻿body {
+overflow-anchor: none;
+overflow-x: clip;
+overflow-y: hidden;
+margin: 0;
+color: rgb(255, 225, 90);
+background-color: rgb(25, 0, 50);
+font-family: 'Century Gothic';
+font-size: 30px;
+font-weight: 600;
+box-sizing: border-box;
+}
+a {
+color: inherit;
+text-decoration: inherit;
+width: fit-content;
+height: fit-content;
+}
+::selection {
+background-color: rgb(255, 215, 30);
+color: rgb(20, 0, 40);
+}
+::-webkit-scrollbar {
+display: none;
+}
+::-webkit-scrollbar-thumb {
+display: none;
+}
+header {
+font-family: 'Bauhaus 93';
+font-size: 75px;
+color: rgb(255, 215, 30);
+background-color: rgb(20, 0, 40);
+border-bottom: 4px solid rgb(255, 215, 30);
+width: 100vw;
+height: 100px;
+user-select: none;
+box-shadow: 0 -10px 15px 20px rgb(0, 0, 0);
+display: flex;
+padding-left: 25px;
+}
+img.logo {
+width: 0.9em;
+height: 0.9em;
+}
