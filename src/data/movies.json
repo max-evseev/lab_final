@@ -4,42 +4,47 @@
     "display_name": "Minecraft: Фільм",
     "runtime": 101,
     "age_restriction": 9,
-    "genres": ["comedy", "adventure", "fantasy", "action"]
+    "genres": ["comedy", "adventure", "fantasy", "action"],
+    "show_schedule": ["2025-05-10T15:00", "2025-05-10T18:30", "2025-05-11T16:00", "2025-05-12T12:30", "2025-05-12T20:00"]
   },
   {
     "id": "minecraft",
     "display_name": "Minecraft: Фільм",
     "runtime": 101,
     "age_restriction": 9,
-    "genres": ["comedy", "adventure", "fantasy", "action"]
+    "genres": ["comedy", "adventure", "fantasy", "action"],
+    "show_schedule": ["2025-05-10T15:00", "2025-05-10T18:30", "2025-05-11T16:00", "2025-05-12T12:30", "2025-05-12T20:00"]
   },
     {
     "id": "minecraft",
     "display_name": "Minecraft: Фільм",
     "runtime": 101,
     "age_restriction": 9,
-    "genres": ["comedy", "adventure", "fantasy", "action"]
+    "genres": ["comedy", "adventure", "fantasy", "action"],
+    "show_schedule": ["2025-05-10T15:00", "2025-05-10T18:30", "2025-05-11T16:00", "2025-05-12T12:30", "2025-05-12T20:00"]
   },
   {
     "id": "minecraft",
     "display_name": "Minecraft: Фільм",
     "runtime": 101,
     "age_restriction": 9,
-    "genres": ["comedy", "adventure", "fantasy", "action"]
+    "genres": ["comedy", "adventure", "fantasy", "action"],
+    "show_schedule": ["2025-05-10T15:00", "2025-05-10T18:30", "2025-05-11T16:00", "2025-05-12T12:30", "2025-05-12T20:00"]
   },
     {
     "id": "minecraft",
     "display_name": "Minecraft: Фільм",
     "runtime": 101,
     "age_restriction": 9,
-    "genres": ["comedy", "adventure", "fantasy", "action"]
+    "genres": ["comedy", "adventure", "fantasy", "action"],
+    "show_schedule": ["2025-05-10T15:00", "2025-05-10T18:30", "2025-05-11T16:00", "2025-05-12T12:30", "2025-05-12T20:00"]
   },
   {
     "id": "minecraft",
     "display_name": "Minecraft: Фільм",
     "runtime": 101,
     "age_restriction": 9,
-    "genres": ["comedy", "adventure", "fantasy", "action"]
+    "genres": ["comedy", "adventure", "fantasy", "action"],
+    "show_schedule": ["2025-05-10T15:00", "2025-05-10T18:30", "2025-05-11T16:00", "2025-05-12T12:30", "2025-05-12T20:00"]
   }
-
 ]
