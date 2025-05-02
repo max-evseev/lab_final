@@ -30,6 +30,12 @@
                 break;
                 case 'action': display_value += 'Бойовик';
                 break;
+                case 'horror': display_value += 'Жахи';
+                break;
+                case 'thriller': display_value += 'Триллер';
+                break;
+                case 'drama': display_value += 'Драма';
+                break;
                 }
                 if (index !== movie_info.genres.length - 1) {
                 display_value += ' • ';
@@ -52,7 +58,10 @@
                 <p className="movie_title">{movie_info.display_name}</p>
                 <p className="movie_subtitle">{genres_display()}</p>
                 <p className="movie_subtitle">{runtime_display()} • {String(movie_info.age_restriction)}+</p>
-                {movie_info.show_schedule.map((showtime) => <span>{digit_fix(String(new Date(showtime).getDate()))}.{digit_fix(String(new Date(showtime).getMonth() + 1))}.{String(new Date(showtime).getFullYear())} {digit_fix(String(new Date(showtime).getHours()))}:{digit_fix(String(new Date(showtime).getMinutes()))}</span>)}
+                <div className="schedule_section">
+                {movie_info.show_schedule.map((showtime) => <span className="movie_showtime">{digit_fix(String(new Date(showtime).getDate()))}.{digit_fix(String(new Date(showtime).getMonth() + 1))}.{String(new Date(showtime).getFullYear())} {digit_fix(String(new Date(showtime).getHours()))}:{digit_fix(String(new Date(showtime).getMinutes()))}</span>)}
+                </div>
+                <p className="movie_price">{String(movie_info.price.toFixed(2)) + ' ГРН.'}</p>
             </div>
         </div>
         );

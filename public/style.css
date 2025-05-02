@@ -67,7 +67,6 @@ border-radius: 25px;
 box-shadow: 0 0 20px 5px rgb(0, 0, 0);
 padding: 20px;
 display: flex;
-justify-content: space-between;
 }
 div.movie_card.active {
 animation-name: cart_highlight;
@@ -116,6 +115,39 @@ display: inline;
 margin: 0;
 font-size: 15px;
 }
+p.movie_price {
+display: inline;
+margin: 0;
+font-size: 30px;
+}
+div.schedule_section {
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-content: flex-start;
+height: 250px;
+}
+span.movie_showtime {
+font-size: 15px;
+background-color: rgb(255, 225, 95);
+color: rgb(20, 0, 40);
+border-radius: 20px;
+padding-left: 5px;
+padding-right: 5px;
+margin: 5px;
+}
+div.movie_card.active span.movie_showtime {
+animation-name: showtime_highlight;
+animation-fill-mode: forwards;
+animation-duration: 250ms;
+animation-timing-function: ease-in;
+}
+div.movie_card.inactive span.movie_showtime {
+animation-name: showtime_highlight_back;
+animation-fill-mode: forwards;
+animation-duration: 250ms;
+animation-timing-function: ease-out;
+}
 @keyframes cart_highlight {
     from {
     background-color: rgb(30, 0, 60);
@@ -154,5 +186,25 @@ font-size: 15px;
     }
     to {
     border: 4px solid rgb(255, 225, 95);
+    }
+}
+@keyframes showtime_highlight {
+    from {
+    background-color: rgb(255, 225, 95);
+    color: rgb(20, 0, 40);
+    }
+    to {
+    background-color: rgb(255, 215, 30);
+    color: rgb(25, 0, 50);
+    }
+}
+@keyframes showtime_highlight_back {
+    from {
+    background-color: rgb(255, 215, 30);
+    color: rgb(25, 0, 50);
+    }
+    to {
+    background-color: rgb(255, 225, 95);
+    color: rgb(20, 0, 40);
     }
 }
