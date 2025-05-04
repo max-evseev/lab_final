@@ -1,55 +1,16 @@
-﻿import { useState } from "react";
+﻿import {runtime_display, genre_display, showtime_display} from '../common_functions.js'
+import {useState} from "react";
     export default function Movie_card({ movie_info }) {
     const [highlight_status, set_highlight] = useState('');
-        function runtime_display() {
-        let minutes = movie_info.runtime;
-        let hours = 0;
-            while (minutes >= 60) {
-            minutes -= 60;
-            hours += 1;
-            }
-            if (hours !== 0 && minutes !== 0) {
-            return String(hours) + ' год. ' + String(minutes) + ' хв.';
-            }
-            else if (hours === 0 && minutes !== 0) {
-            return String(minutes) + ' хв.';
-            }
-            else if (hours !== 0 && minutes === 0) {
-            return String(hours) + ' год.';
-            }
-        }
         function genres_display() {
         let display_value = '';
             movie_info.genres.forEach((genre, index) => {
-                switch (genre) {
-                case 'comedy': display_value += 'Комедія';
-                break;
-                case 'adventure': display_value += 'Пригоди';
-                break;
-                case 'fantasy': display_value += 'Фентезі';
-                break;
-                case 'action': display_value += 'Бойовик';
-                break;
-                case 'horror': display_value += 'Жахи';
-                break;
-                case 'thriller': display_value += 'Триллер';
-                break;
-                case 'drama': display_value += 'Драма';
-                break;
-                }
+            display_value += genre_display(genre);
                 if (index !== movie_info.genres.length - 1) {
                 display_value += ' • ';
                 }
             });
         return display_value;
-        }
-        function digit_fix(value) {
-            if (value.length === 1) {
-            return '0' + value;
-            }
-            else {
-            return value;
-            }
         }
         return (
         <div className={"movie_card " + highlight_status} onMouseOver={() => set_highlight('active')} onMouseOut={() => set_highlight('inactive')}>
@@ -57,9 +18,9 @@
             <div className="movie_side_info">
                 <p className="movie_title">{movie_info.display_name}</p>
                 <p className="movie_subtitle">{genres_display()}</p>
-                <p className="movie_subtitle">{runtime_display()} • {String(movie_info.age_restriction)}+</p>
+                <p className="movie_subtitle">{runtime_display(movie_info.runtime)} • {String(movie_info.age_restriction)}+</p>
                 <div className="schedule_section">
-                {movie_info.show_schedule.map((showtime) => <span className="movie_showtime">{digit_fix(String(new Date(showtime).getDate()))}.{digit_fix(String(new Date(showtime).getMonth() + 1))}.{String(new Date(showtime).getFullYear())} {digit_fix(String(new Date(showtime).getHours()))}:{digit_fix(String(new Date(showtime).getMinutes()))}</span>)}
+                    {movie_info.show_schedule.map((showtime) => <span className="movie_showtime">{showtime_display(showtime)}</span>)}
                 </div>
                 <p className="movie_price">{String(movie_info.price.toFixed(2)) + ' ГРН.'}</p>
             </div>
