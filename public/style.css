@@ -40,6 +40,7 @@ display: flex;
 padding-left: 25px;
 z-index: 4;
 position: relative;
+box-sizing: border-box;
 }
 div.main_content {
 display: flex;
@@ -70,7 +71,6 @@ padding: 20px;
 display: flex;
 justify-content: space-between;
 align-items: center;
-
 }
 div.movie_card.active {
 animation-name: cart_highlight;
@@ -173,7 +173,7 @@ width: 1em;
 margin-left: 10px
 }
 div.search_input {
-width: 350px;
+width: 250px;
 height: 50px;
 box-sizing: border-box;
 display: flex;
@@ -187,7 +187,7 @@ background-color: rgb(25, 0, 50);
 font-family: inherit;
 font-size: inherit;
 font-weight: inherit;
-width: 350px;
+width: 250px;
 height: 50px;
 border-radius: 20px;
 color: rgb(255, 225, 95);
@@ -270,7 +270,6 @@ box-sizing: border-box;
 }
 div.range_slider input {
 position: absolute;
-appearance: none;
 width: 350px;
 transform: translate(-10px, -55%);
 background: none;
@@ -365,6 +364,7 @@ width: 375px;
 display: flex;
 flex-direction: column;
 align-items: center;
+font-size: 30px;
 }
 div.criteria_sort_section span {
 width: 375px;
@@ -372,6 +372,8 @@ height: 40px;
 box-sizing: border-box;
 padding-left: 25px;
 cursor: default;
+display: flex;
+align-items: center;
 }
 div.criteria_sort_section span.top {
 border-bottom: 1px solid rgb(255, 225, 95);
@@ -469,5 +471,99 @@ animation-timing-function: ease-in;
     to {
     background-color: rgb(255, 225, 95);
     color: rgb(20, 0, 40);
+    }
+}
+@media (max-width: 1400px) or (max-height: 700px) {
+    div.search_section {
+    font-size: 45px;
+    height: 100px;
+    }
+    div.search_input {
+    height: 75px;
+    }
+    input.search_input {
+    height: 75px;
+    padding-left: 60px;
+    }
+    span.parameter_button {
+    width: 75px;
+    height: 75px;
+    }
+    div.movie_card {
+    width: 500px;
+    }
+    div.movie_side_info {
+    width: 200px;
+    }
+    p.movie_title {
+    font-size: 30px;
+    }
+    div.schedule_section {
+    flex-wrap: nowrap;
+    overflow-y: scroll;
+    background-color: rgb(20, 0, 40);
+    border-radius: 20px;
+    }
+    span.movie_showtime {
+    font-size: 30px;
+    text-align: center;
+    margin: 10px;
+    padding: 0px;
+    }
+    div.parameter_menu {
+    width: 500px;
+    }
+    p.menu_title {
+    font-size: 45px;
+    }
+    div.range_slider {
+    width: 450px;
+    border: 20px solid rgb(20, 0, 40);
+    }
+    div.range_slider input {
+    width: 450px;
+    transform: translate(-20px, -55%);  
+    }
+    input[type="range"]::-webkit-slider-thumb {
+    width: 50px;
+    height: 50px;
+    }
+    div.range_values {
+    font-size: 20px;
+    }
+    div.checkbox_section {
+    font-size: 40px;
+    }
+    div.checkbox_section input, span.check_button {
+    height: 60px;
+    width: 60px;
+    }
+    div.order_sort_section {
+    font-size: 20px;
+    width: 450px;
+    height: 75px;
+    }
+    div.order_sort_section span {
+    width: 150px;
+    height: 75px;
+    }
+    div.criteria_sort_section {
+    width: 450px;
+    }
+    div.criteria_sort_section span {
+    width: 450px;
+    height: 60px;
+    }
+}
+@media (max-width: 700px) {
+    div.movie_card {
+    margin-left: 15px;
+    margin-right: 15px;
+    }
+    div.parameter_menu.filter {
+    left: -250px;
+    }
+    div.parameter_menu.sort {
+    left: -335px;
     }
 }
