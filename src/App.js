@@ -1,7 +1,7 @@
 ﻿import Movie_list from './components/Movie_list'
 import {runtime_display, genre_display, showtime_display} from './common_functions.js'
 import {useState, useEffect} from "react";
-var all_movies = require('./data/movies.json');
+const all_movies = require('./data/movies.json');
 var min_price = null;
 var max_price = null;
 var min_showtime = null;
@@ -68,28 +68,26 @@ var all_genres = [];
             }
         });
     });
+    const default_filter = {
+    query: '',
+    price: [min_price, max_price],
+    showtime: [min_showtime, max_showtime],
+    runtime: [min_runtime, max_runtime],
+    restriction: [min_restriction, max_restriction],
+    genres: all_genres,
+    sorting: ['none', 'none']
+    }
     export default function App() {
     const [movie_list, set_list] = useState(all_movies);
-    const [search_query, set_query] = useState('');
-    const [filter_menu, set_filter_menu] = useState(false);
-    const [sort_menu, set_sort_menu] = useState(false);
-        const [filter, set_filter] = useState(JSON.stringify({
-        price: [min_price, max_price],
-        showtime: [min_showtime, max_showtime],
-        runtime: [min_runtime, max_runtime],
-        restriction: [min_restriction, max_restriction],
-        genres: all_genres
-        }));
-        const [sorting, set_sorting] = useState(JSON.stringify({
-        order: 'none',
-        criteria: 'none'
-        }));
+    const [active_menu, set_active_menu] = useState(null);
+    const [filter, set_filter] = useState(JSON.stringify(default_filter));
+    const [sort_animations, set_sort_animations] = useState(' disable');
         useEffect(() => {
+        set_sort_animations('');
         let query_result = [];
-            console.log(filter);
             all_movies.forEach((movie) => {
             let search_condition = false;
-                if (movie.display_name.toLowerCase().search(search_query.toLowerCase().trim()) === 0) {
+                if (movie.display_name.toLowerCase().search(JSON.parse(filter).query.toLowerCase().trim()) === 0) {
                 search_condition = true
                 }
             let price_condition = false;
@@ -120,8 +118,51 @@ var all_genres = [];
                 query_result.push(movie);
                 }
             });
+        let order = null;
+            switch (JSON.parse(filter).sorting[0]) {
+            case 'asc': order = 1;
+            break;
+            case 'desc': order = -1;
+            break;
+            }
+            switch (JSON.parse(filter).sorting[1]) {
+            case 'none': let shuffle_index = query_result.length;
+                while (shuffle_index != 0) {
+                let replace_index = Math.floor(Math.random() * shuffle_index);
+                shuffle_index--;
+                [query_result[shuffle_index], query_result[replace_index]] = [query_result[replace_index], query_result[shuffle_index]];
+                }
+            break;
+            case 'name': query_result.sort((a, b) => {
+                if (a.display_name.toLowerCase() < b.display_name.toLowerCase()) {
+                return -order;
+                }
+                else if (a.display_name.toLowerCase() > b.display_name.toLowerCase()) {
+                return order;
+                }
+                else {
+                return 0;
+                }
+            });
+            break;
+            case 'price': query_result.sort((a, b) => order * (a.price - b.price));
+            break;
+            case 'runtime': query_result.sort((a, b) => order * (a.runtime - b.runtime));
+            break;
+            case 'restriction': query_result.sort((a, b) => order * (a.age_restriction - b.age_restriction));
+            break;
+            case 'closest_show': query_result.sort((a, b) => order * (new Date(a.show_schedule[0]).getTime() - new Date(b.show_schedule[0]).getTime()));
+            break;
+            case 'latest_show': query_result.sort((a, b) => order * (new Date(a.show_schedule[a.show_schedule.length - 1]).getTime() - new Date(b.show_schedule[b.show_schedule.length - 1]).getTime()));
+            break;
+            }
         set_list(query_result);
-        }, [search_query, filter]);
+        }, [filter]);
+        useEffect(() => {
+            if (active_menu === 'sort') {
+            set_sort_animations(' disable');
+            }
+        }, [active_menu]);
         const change_genres = (e, genre) => {
         let filter_new = JSON.parse(filter);
             switch (e.target.checked) {
@@ -187,12 +228,59 @@ var all_genres = [];
             }
         set_filter(JSON.stringify(filter_new));
         }
+        const set_query = (e) => {
+        let filter_new = JSON.parse(filter);
+        filter_new.query = e.target.value;
+        set_filter(JSON.stringify(filter_new));
+        }
+        function change_order(value) {
+        let filter_new = JSON.parse(filter);
+        filter_new.sorting[0] = value;
+            if (value === 'none') {
+            filter_new.sorting[1] = 'none';
+            }
+            else if (value !== 'none' && JSON.parse(filter).sorting[1] === 'none') {
+            filter_new.sorting[1] = 'name';
+            }
+        set_filter(JSON.stringify(filter_new));
+        }
+        function change_criteria(value) {
+            if (JSON.parse(filter).sorting[0] !== 'none') {
+            let filter_new = JSON.parse(filter);
+            filter_new.sorting[1] = value;
+            set_filter(JSON.stringify(filter_new));
+            }
+        }
         function layer_priority(value) {
-            switch (value) {
-            case true: return 'active_menu';
-            break;
-            case false: return '';
-            break;
+            if (active_menu === value) {
+            return ' active_menu';
+            }
+            else {
+            return '';
+            }
+        }
+        function menu_check(value) {
+            if (active_menu === value) {
+            return true;
+            }
+            else {
+            return false;
+            }
+        }
+        function sort_checker(value, position) {
+            if (value === JSON.parse(filter).sorting[position]) {
+            return ' selected_sort';
+            }
+            else {
+            return '';
+            }
+        }
+        function sort_aviability_checker() {
+            if (JSON.parse(filter).sorting[0] !== 'none') {
+            return ' available';
+            }
+            else {
+            return '';
             }
         }
         return (
@@ -200,13 +288,13 @@ var all_genres = [];
             <div className="search_section">
                 <div className="search_input">
                     <img className="input_icon" src={require('./icons/search.png')} draggable="false" alt=""></img>
-                    <input className="search_input" placeholder="Шукайте фільми..." value={search_query} onChange={e => set_query(e.target.value)}></input>
+                    <input className="search_input" placeholder="Шукайте фільми..." value={JSON.parse(filter).query} onChange={(e) => set_query(e)}></input>
                 </div>
-                <div className={"parameter_section " + layer_priority(filter_menu)} onMouseOver={() => set_filter_menu(true)} onMouseOut={() => set_filter_menu(false)}>
+                <div className={"parameter_section" + layer_priority('filter')} onMouseOver={() => set_active_menu('filter')} onMouseOut={() => set_active_menu(null)}>
                     <span className="parameter_button">
                         <img src={require('./icons/filter.png')} draggable="false" alt=""></img>
                     </span>
-                    {filter_menu && <div className="parameter_menu">
+                    {menu_check('filter') && <div className="parameter_menu">
                         <p className="menu_title">
                             Ціна
                         </p>
@@ -283,14 +371,52 @@ var all_genres = [];
                         </div>
                     </div>}
                 </div>
-                <div className={"parameter_section " + layer_priority(sort_menu)} onMouseOver={() => set_sort_menu(true)} onMouseOut={() => set_sort_menu(false)}>
+                <div className={"parameter_section" + layer_priority('sort') + sort_animations} onMouseOver={() => set_active_menu('sort')} onMouseOut={() => set_active_menu(null)}>
                     <span className="parameter_button">
                         <img src={require('./icons/sort.png')} draggable="false" alt=""></img>
                     </span>
-                    {sort_menu && <div className="parameter_menu"></div>}
+                    {menu_check('sort') && <div className="parameter_menu">
+                        <p className="menu_title">
+                            Порядок
+                        </p>
+                        <div className="order_sort_section">
+                            <span className={"left" + sort_checker('none', 0)} onClick={() => change_order('none')}>
+                                Відсутній
+                            </span>
+                            <span className={"center" + sort_checker('asc', 0)} onClick={() => change_order('asc')}>
+                                Зростаючий
+                            </span>
+                            <span className={"right" + sort_checker('desc', 0)} onClick={() => change_order('desc')}>
+                                Спадний
+                            </span>
+                        </div>
+                        <p className="menu_title">
+                            Критерій
+                        </p>
+                        <div className="criteria_sort_section">
+                            <span className={"top" + sort_checker('name', 1) + sort_aviability_checker()} onClick={() => change_criteria('name')}>
+                                Назва
+                            </span>
+                            <span className={"center" + sort_checker('price', 1) + sort_aviability_checker()} onClick={() => change_criteria('price')}>
+                                Ціна
+                            </span>
+                            <span className={"center" + sort_checker('runtime', 1) + sort_aviability_checker()} onClick={() => change_criteria('runtime')}>
+                                Тривалість
+                            </span>
+                            <span className={"center" + sort_checker('restriction', 1) + sort_aviability_checker()} onClick={() => change_criteria('restriction')}>
+                                Вікове обмеження
+                            </span>
+                            <span className={"center" + sort_checker('closest_show', 1) + sort_aviability_checker()} onClick={() => change_criteria('closest_show')}>
+                                Найближчий сеанс
+                            </span>
+                            <span className={"bottom" + sort_checker('latest_show', 1) + sort_aviability_checker()} onClick={() => change_criteria('latest_show')}>
+                                Найпізніший сеанс
+                            </span>
+                        </div>
+                    </div>}
                 </div>
                 <div className="parameter_section">
-                    <span className="parameter_button">
+                    <span className="parameter_button" onClick={() => set_filter(JSON.stringify(default_filter))}>
                         <img src={require('./icons/remove.png')} draggable="false" alt=""></img>
                     </span>
                 </div>
