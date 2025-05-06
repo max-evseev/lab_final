@@ -10,6 +10,9 @@ font-size: 30px;
 font-weight: 600;
 box-sizing: border-box;
 }
+p {
+margin: 0;
+}
 a {
 color: inherit;
 text-decoration: inherit;
@@ -115,16 +118,13 @@ animation-timing-function: ease-out;
 p.movie_title {
 display: inline;
 font-size: 45px;
-margin: 0;
 }
 p.movie_subtitle {
 display: inline;
-margin: 0;
 font-size: 15px;
 }
 p.movie_price {
 display: inline;
-margin: 0;
 font-size: 30px;
 }
 div.schedule_section {
@@ -244,7 +244,6 @@ flex-direction: column;
 align-items: center;
 }
 p.menu_title {
-margin: 0;
 font-size: 30px;
 text-align: center;
 }
@@ -256,9 +255,6 @@ padding-left: 10px;
 padding-right: 10px;
 width: 100%;
 box-sizing: border-box;
-}
-div.range_values p {
-margin: 0;
 }
 div.range_slider {
 margin-top: 10px;
@@ -295,9 +291,6 @@ display: flex;
 font-size: 20px;
 padding: 5px;
 align-items: center;
-}
-div.checkbox_section p {
-margin: 0;
 }
 div.checkbox_section input {
 height: 30px;
@@ -402,6 +395,15 @@ animation-name: sort_highlight;
 animation-fill-mode: forwards;
 animation-duration: 250ms;
 animation-timing-function: ease-in;
+}
+p.not_found {
+height: 500px;
+width: 100vw;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+font-size: 60px;
 }
 @keyframes cart_highlight {
     from {
@@ -554,6 +556,9 @@ animation-timing-function: ease-in;
     width: 450px;
     height: 60px;
     }
+    p.not_found {
+    height: 750px;
+    }
 }
 @media (max-width: 700px) {
     div.movie_card {
@@ -565,5 +570,8 @@ animation-timing-function: ease-in;
     }
     div.parameter_menu.sort {
     left: -335px;
+    }
+    p.not_found {
+    font-size: 45px;
     }
 }

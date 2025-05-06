@@ -39,6 +39,12 @@
         break;
         case 'drama': return 'Драма';
         break;
+        case 'sci-fi': return 'Наукова фантастика';
+        break;
+        case 'superhero': return 'Супергерої';
+        break;
+        case 'crime': return 'Кримінал';
+        break;
         }
     }
     export function showtime_display(value) {
