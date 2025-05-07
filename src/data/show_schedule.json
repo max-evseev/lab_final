@@ -1,0 +1,710 @@
+﻿[
+  {
+    "showtime": "2025-05-09T08:15",
+    "movie": "minecraft",
+    "seats": [
+                      ["sold", "sold", "free", "sold", "sold", "sold"],
+                      ["sold", "sold", "sold", "sold", "sold", "sold"],
+              ["sold", "sold", "sold", "sold", "sold", "free", "sold", "sold"],
+              ["sold", "free", "sold", "sold", "sold", "sold", "sold", "sold"],
+      ["sold", "sold", "sold", "sold", "sold", "sold", "sold", "sold", "sold", "sold"],
+      ["sold", "free", "sold", "sold", "sold", "sold", "sold", "free", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-09T10:00",
+    "movie": "paddington_in_peru",
+    "seats": [
+                      ["sold", "free", "sold", "sold", "sold", "free"],
+                      ["sold", "sold", "sold", "free", "sold", "sold"],
+              ["sold", "sold", "free", "sold", "sold", "sold", "sold", "free"],
+              ["sold", "sold", "sold", "sold", "sold", "sold", "free", "sold"],
+      ["sold", "sold", "free", "sold", "sold", "sold", "sold", "sold", "sold", "sold"],
+      ["free", "sold", "free", "sold", "sold", "sold", "sold", "sold", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-09T12:00",
+    "movie": "shadow_force",
+    "seats": [
+                      ["sold", "sold", "sold", "sold", "sold", "sold"],
+                      ["sold", "free", "sold", "sold", "sold", "free"],
+              ["sold", "sold", "sold", "sold", "sold", "sold", "free", "sold"],
+              ["free", "sold", "free", "sold", "sold", "sold", "sold", "free"],
+      ["sold", "sold", "sold", "sold", "sold", "free", "sold", "free", "sold", "sold"],
+      ["free", "sold", "free", "sold", "sold", "free", "sold", "sold", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-09T13:45",
+    "movie": "fight_or_flight",
+    "seats": [
+                      ["free", "sold", "sold", "sold", "sold", "free"],
+                      ["sold", "sold", "sold", "sold", "sold", "sold"],
+              ["sold", "sold", "sold", "sold", "free", "sold", "sold", "sold"],
+              ["sold", "free", "sold", "sold", "sold", "sold", "sold", "free"],
+      ["sold", "sold", "sold", "sold", "sold", "sold", "free", "sold", "sold", "sold"],
+      ["sold", "sold", "sold", "free", "sold", "sold", "sold", "sold", "sold", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-09T15:30",
+    "movie": "shadow_force",
+    "seats": [
+                      ["sold", "sold", "sold", "sold", "sold", "sold"],
+                      ["sold", "sold", "sold", "sold", "sold", "sold"],
+              ["sold", "sold", "sold", "sold", "sold", "sold", "sold", "sold"],
+              ["free", "sold", "sold", "sold", "sold", "free", "sold", "sold"],
+      ["sold", "sold", "sold", "sold", "sold", "free", "sold", "sold", "sold", "sold"],
+      ["sold", "sold", "free", "sold", "sold", "sold", "sold", "sold", "sold", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-09T17:15",
+    "movie": "fight_or_flight",
+    "seats": [
+                      ["sold", "sold", "sold", "free", "sold", "sold"],
+                      ["free", "sold", "sold", "sold", "sold", "sold"],
+              ["sold", "sold", "sold", "sold", "sold", "sold", "sold", "free"],
+              ["sold", "sold", "sold", "free", "sold", "sold", "sold", "sold"],
+      ["sold", "sold", "free", "sold", "sold", "sold", "sold", "sold", "sold", "sold"],
+      ["sold", "sold", "sold", "sold", "sold", "sold", "sold", "free", "sold", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-09T19:00",
+    "movie": "sinners",
+    "seats": [
+                      ["sold", "sold", "free", "sold", "free", "sold"],
+                      ["sold", "free", "sold", "sold", "free", "sold"],
+              ["free", "sold", "free", "sold", "free", "sold", "sold", "free"],
+              ["sold", "sold", "sold", "sold", "sold", "free", "free", "sold"],
+      ["sold", "sold", "free", "sold", "free", "free", "sold", "sold", "sold", "sold"],
+      ["sold", "free", "sold", "free", "free", "sold", "free", "sold", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-09T21:30",
+    "movie": "until_dawn",
+    "seats": [
+                      ["sold", "free", "sold", "sold", "free", "sold"],
+                      ["free", "free", "sold", "free", "free", "sold"],
+              ["free", "sold", "free", "free", "sold", "free", "free", "sold"],
+              ["free", "free", "free", "sold", "free", "free", "sold", "free"],
+      ["free", "sold", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "sold", "sold", "free", "sold", "free", "sold", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-10T08:30",
+    "movie": "paddington_in_peru",
+    "seats": [
+                      ["sold", "free", "sold", "sold", "sold", "free"],
+                      ["sold", "free", "sold", "sold", "sold", "free"],
+              ["free", "free", "sold", "free", "free", "sold", "free", "free"],
+              ["free", "free", "free", "free", "sold", "free", "free", "free"],
+      ["free", "free", "sold", "free", "free", "sold", "sold", "free", "sold", "sold"],
+      ["free", "sold", "sold", "free", "free", "free", "sold", "sold", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-10T10:30",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["free", "sold", "free", "free", "free", "sold"],
+                      ["sold", "free", "free", "sold", "sold", "sold"],
+              ["sold", "free", "sold", "free", "sold", "sold", "sold", "free"],
+              ["sold", "sold", "sold", "sold", "sold", "free", "sold", "sold"],
+      ["sold", "sold", "free", "sold", "sold", "sold", "sold", "sold", "sold", "free"],
+      ["sold", "sold", "sold", "free", "sold", "sold", "free", "sold", "sold", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-10T12:45",
+    "movie": "dogman",
+    "seats": [
+                      ["free", "free", "free", "free", "sold", "free"],
+                      ["sold", "sold", "free", "free", "free", "sold"],
+              ["free", "free", "free", "free", "free", "free", "sold", "free"],
+              ["free", "sold", "free", "sold", "free", "sold", "sold", "sold"],
+      ["free", "free", "free", "sold", "free", "free", "free", "free", "free", "free"],
+      ["free", "sold", "free", "free", "sold", "free", "free", "free", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-10T14:15",
+    "movie": "shadow_force",
+    "seats": [
+                      ["sold", "free", "sold", "sold", "sold", "sold"],
+                      ["sold", "sold", "sold", "sold", "free", "sold"],
+              ["sold", "sold", "free", "sold", "free", "sold", "sold", "sold"],
+              ["free", "sold", "sold", "sold", "sold", "sold", "sold", "free"],
+      ["sold", "sold", "free", "sold", "free", "sold", "sold", "sold", "sold", "sold"],
+      ["sold", "sold", "sold", "sold", "free", "sold", "free", "sold", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-10T16:00",
+    "movie": "amateur",
+    "seats": [
+                      ["free", "sold", "sold", "free", "sold", "free"],
+                      ["sold", "sold", "free", "sold", "sold", "sold"],
+              ["free", "sold", "free", "sold", "free", "sold", "sold", "free"],
+              ["sold", "sold", "free", "sold", "sold", "sold", "sold", "free"],
+      ["sold", "sold", "free", "free", "sold", "sold", "sold", "free", "sold", "sold"],
+      ["free", "sold", "free", "sold", "sold", "free", "sold", "sold", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-10T18:15",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["free", "sold", "sold", "sold", "free", "free"],
+                      ["sold", "sold", "free", "sold", "sold", "sold"],
+              ["sold", "sold", "sold", "sold", "sold", "free", "sold", "sold"],
+              ["sold", "free", "sold", "sold", "sold", "sold", "free", "sold"],
+      ["sold", "sold", "sold", "sold", "sold", "free", "sold", "sold", "free", "free"],
+      ["free", "sold", "free", "sold", "sold", "free", "sold", "sold", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-10T20:30",
+    "movie": "until_dawn",
+    "seats": [
+                      ["free", "sold", "free", "sold", "free", "sold"],
+                      ["free", "sold", "free", "free", "free", "sold"],
+              ["free", "sold", "free", "free", "free", "free", "sold", "free"],
+              ["free", "free", "sold", "free", "sold", "free", "free", "sold"],
+      ["free", "sold", "free", "free", "sold", "free", "free", "free", "free", "free"],
+      ["free", "free", "sold", "free", "free", "free", "free", "free", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-11T08:30",
+    "movie": "dogman",
+    "seats": [
+                      ["free", "free", "free", "sold", "sold", "sold"],
+                      ["free", "sold", "sold", "free", "free", "free"],
+              ["free", "free", "sold", "sold", "sold", "sold", "free", "free"],
+              ["free", "free", "free", "free", "free", "sold", "sold", "free"],
+      ["free", "free", "free", "sold", "free", "free", "free", "sold", "free", "sold"],
+      ["free", "sold", "free", "free", "free", "sold", "sold", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-11T10:00",
+    "movie": "minecraft",
+    "seats": [
+                      ["sold", "free", "sold", "free", "sold", "free"],
+                      ["free", "sold", "free", "sold", "sold", "free"],
+              ["free", "sold", "free", "sold", "sold", "free", "sold", "free"],
+              ["sold", "sold", "sold", "sold", "free", "sold", "sold", "sold"],
+      ["sold", "free", "sold", "free", "sold", "sold", "sold", "free", "sold", "sold"],
+      ["free", "sold", "free", "sold", "free", "sold", "sold", "free", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-11T11:45",
+    "movie": "fight_or_flight",
+    "seats": [
+                      ["sold", "sold", "free", "free", "sold", "sold"],
+                      ["sold", "free", "sold", "sold", "sold", "free"],
+              ["sold", "sold", "sold", "free", "sold", "sold", "sold", "free"],
+              ["sold", "free", "sold", "sold", "free", "sold", "sold", "sold"],
+      ["sold", "sold", "sold", "free", "sold", "sold", "sold", "sold", "free", "sold"],
+      ["sold", "sold", "free", "sold", "sold", "free", "sold", "free", "sold", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-11T13:30",
+    "movie": "accountant2",
+    "seats": [
+                      ["sold", "free", "sold", "sold", "sold", "free"],
+                      ["sold", "free", "sold", "sold", "sold", "sold"],
+              ["sold", "free", "sold", "sold", "free", "sold", "sold", "free"],
+              ["sold", "sold", "sold", "sold", "free", "sold", "sold", "sold"],
+      ["free", "sold", "sold", "sold", "sold", "sold", "sold", "sold", "free", "sold"],
+      ["sold", "free", "free", "sold", "sold", "free", "sold", "sold", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-11T15:45",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["free", "sold", "free", "sold", "free", "sold"],
+                      ["sold", "free", "sold", "sold", "free", "sold"],
+              ["free", "sold", "sold", "free", "sold", "sold", "free", "sold"],
+              ["sold", "free", "sold", "free", "sold", "sold", "sold", "sold"],
+      ["sold", "sold", "sold", "sold", "sold", "sold", "sold", "free", "sold", "sold"],
+      ["sold", "free", "sold", "free", "sold", "free", "sold", "sold", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-11T18:00",
+    "movie": "sinners",
+    "seats": [
+                      ["sold", "sold", "free", "sold", "free", "sold"],
+                      ["free", "free", "sold", "free", "free", "sold"],
+              ["free", "sold", "free", "free", "sold", "free", "free", "free"],
+              ["sold", "free", "free", "free", "free", "free", "free", "sold"],
+      ["free", "free", "free", "free", "sold", "free", "sold", "free", "free", "free"],
+      ["sold", "sold", "free", "free", "free", "sold", "free", "sold", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-11T20:30",
+    "movie": "until_dawn",
+    "seats": [
+                      ["sold", "free", "sold", "sold", "free", "sold"],
+                      ["free", "sold", "free", "free", "sold", "free"],
+              ["free", "sold", "free", "free", "free", "free", "sold", "free"],
+              ["free", "free", "free", "free", "sold", "free", "sold", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "sold", "free", "free", "sold", "sold", "free", "free", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-12T08:15",
+    "movie": "paddington_in_peru",
+    "seats": [
+                      ["sold", "sold", "sold", "sold", "free", "free"],
+                      ["free", "free", "sold", "sold", "free", "free"],
+              ["free", "free", "sold", "free", "free", "free", "free", "sold"],
+              ["free", "sold", "free", "sold", "sold", "free", "free", "free"],
+      ["free", "free", "sold", "free", "free", "free", "free", "sold", "free", "free"],
+      ["free", "sold", "free", "free", "sold", "free", "free", "sold", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-12T10:15",
+    "movie": "minecraft",
+    "seats": [
+                      ["sold", "free", "sold", "sold", "sold", "free"],
+                      ["free", "sold", "free", "sold", "sold", "sold"],
+              ["free", "sold", "sold", "free", "sold", "free", "sold", "free"],
+              ["sold", "free", "sold", "sold", "sold", "sold", "free", "sold"],
+      ["sold", "sold", "sold", "sold", "free", "sold", "free", "sold", "free", "sold"],
+      ["free", "free", "sold", "free", "sold", "free", "sold", "sold", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-12T12:00",
+    "movie": "dogman",
+    "seats": [
+                      ["sold", "sold", "free", "free", "sold", "free"],
+                      ["free", "free", "sold", "free", "free", "free"],
+              ["free", "sold", "free", "free", "free", "sold", "free", "free"],
+              ["free", "free", "free", "sold", "sold", "sold", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["sold", "free", "sold", "sold", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-12T13:30",
+    "movie": "shadow_force",
+    "seats": [
+                      ["free", "free", "sold", "free", "sold", "free"],
+                      ["free", "free", "sold", "sold", "free", "sold"],
+              ["free", "sold", "free", "sold", "free", "free", "sold", "free"],
+              ["free", "free", "sold", "free", "free", "sold", "free", "free"],
+      ["free", "free", "sold", "free", "free", "sold", "free", "free", "free", "sold"],
+      ["free", "sold", "sold", "free", "sold", "free", "sold", "free", "sold", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-12T15:15",
+    "movie": "fight_or_flight",
+    "seats": [
+                      ["free", "sold", "free", "sold", "sold", "free"],
+                      ["free", "sold", "free", "free", "sold", "free"],
+              ["sold", "free", "free", "sold", "free", "sold", "free", "free"],
+              ["sold", "free", "sold", "free", "free", "free", "sold", "free"],
+      ["free", "free", "sold", "free", "free", "sold", "free", "sold", "free", "sold"],
+      ["sold", "sold", "free", "sold", "free", "free", "sold", "free", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-12T17:00",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["sold", "free", "free", "sold", "free", "sold"],
+                      ["sold", "free", "free", "free", "sold", "free"],
+              ["free", "free", "free", "sold", "free", "free", "free", "free"],
+              ["sold", "free", "free", "sold", "free", "free", "sold", "free"],
+      ["free", "free", "free", "sold", "free", "free", "free", "sold", "free", "free"],
+      ["free", "sold", "free", "sold", "free", "sold", "free", "free", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-12T19:15",
+    "movie": "accountant2",
+    "seats": [
+                      ["free", "sold", "free", "sold", "free", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "sold", "free", "free", "sold", "free", "sold", "free"],
+              ["free", "free", "free", "sold", "free", "free", "free", "free"],
+      ["free", "sold", "free", "free", "sold", "free", "free", "free", "sold", "free"],
+      ["free", "free", "sold", "free", "sold", "free", "free", "sold", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-12T21:30",
+    "movie": "until_dawn",
+    "seats": [
+                      ["sold", "free", "sold", "free", "free", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "sold", "free", "sold", "free", "sold", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "sold", "free", "free", "free", "sold", "free", "free"],
+      ["sold", "free", "sold", "free", "free", "free", "sold", "free", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-13T08:15",
+    "movie": "dogman",
+    "seats": [
+                      ["free", "sold", "sold", "free", "free", "sold"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["sold", "free", "sold", "free", "free", "sold", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "sold", "sold", "free", "free", "free", "sold", "free"],
+      ["free", "sold", "free", "free", "free", "free", "sold", "free", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-13T09:45",
+    "movie": "amateur",
+    "seats": [
+                      ["free", "free", "sold", "free", "free", "sold"],
+                      ["free", "free", "free", "free", "sold", "free"],
+              ["free", "free", "sold", "free", "free", "free", "free", "free"],
+              ["sold", "free", "free", "free", "free", "free", "sold", "free"],
+      ["free", "free", "free", "sold", "free", "free", "free", "free", "free", "sold"],
+      ["free", "free", "sold", "free", "free", "free", "sold", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-13T12:00",
+    "movie": "fight_or_flight",
+    "seats": [
+                      ["free", "sold", "free", "free", "sold", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "sold", "free", "sold", "free", "free", "free", "free"],
+              ["free", "free", "sold", "free", "free", "sold", "free", "sold"],
+      ["sold", "free", "free", "sold", "free", "free", "free", "free", "free", "free"],
+      ["sold", "free", "free", "free", "free", "sold", "free", "free", "free", "sold"]
+    ]
+  },
+  {
+    "showtime": "2025-05-13T13:45",
+    "movie": "shadow_force",
+    "seats": [
+                      ["free", "free", "free", "sold", "free", "sold"],
+                      ["sold", "free", "sold", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "sold", "free", "free"],
+              ["free", "sold", "free", "free", "free", "free", "free", "sold"],
+      ["free", "free", "free", "sold", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "sold", "free", "free", "free", "sold", "free", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-13T15:30",
+    "movie": "minecraft",
+    "seats": [
+                      ["sold", "free", "sold", "free", "free", "sold"],
+                      ["free", "free", "sold", "free", "free", "sold"],
+              ["free", "free", "sold", "free", "sold", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "sold"],
+      ["free", "free", "sold", "free", "free", "sold", "free", "free", "sold", "sold"],
+      ["free", "sold", "sold", "free", "free", "free", "sold", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-13T17:15",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["free", "free", "sold", "free", "free", "sold"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "sold", "free", "free", "free"],
+              ["free", "free", "sold", "free", "free", "free", "free", "sold"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "sold", "sold", "free", "sold", "free", "sold", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-13T19:30",
+    "movie": "accountant2",
+    "seats": [
+                      ["free", "sold", "free", "free", "free", "sold"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "sold"],
+              ["free", "free", "sold", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-13T21:45",
+    "movie": "until_dawn",
+    "seats": [
+                      ["free", "free", "free", "free", "sold", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "sold", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "sold", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-14T08:15",
+    "movie": "minecraft",
+    "seats": [
+                      ["free", "free", "free", "sold", "free", "free"],
+                      ["free", "sold", "free", "free", "free", "sold"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "sold", "free", "free", "free", "sold", "free"],
+      ["free", "free", "free", "free", "free", "free", "sold", "free", "free", "free"],
+      ["free", "free", "sold", "free", "sold", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-14T10:00",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["free", "free", "free", "free", "sold", "free"],
+                      ["free", "sold", "sold", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "sold", "free"],
+              ["free", "free", "free", "sold", "free", "free", "free", "free"],
+      ["free", "free", "sold", "free", "free", "free", "free", "sold", "free", "free"],
+      ["free", "free", "free", "free", "sold", "free", "free", "sold", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-14T12:15",
+    "movie": "shadow_force",
+    "seats": [
+                      ["sold", "free", "free", "free", "sold", "free"],
+                      ["free", "free", "sold", "free", "sold", "free"],
+              ["free", "free", "free", "free", "sold", "sold", "free", "free"],
+              ["free", "sold", "free", "free", "free", "free", "free", "sold"],
+      ["free", "free", "free", "free", "free", "free", "free", "sold", "free", "free"],
+      ["free", "free", "sold", "free", "sold", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-14T14:00",
+    "movie": "fight_or_flight",
+    "seats": [
+                      ["free", "free", "free", "free", "free", "free"],
+                      ["free", "free", "sold", "sold", "free", "free"],
+              ["sold", "free", "free", "free", "free", "free", "sold", "free"],
+              ["free", "free", "free", "sold", "free", "free", "free", "free"],
+      ["free", "sold", "free", "free", "free", "free", "sold", "free", "free", "free"],
+      ["free", "free", "sold", "free", "free", "sold", "free", "free", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-14T15:45",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["free", "free", "free", "sold", "free", "sold"],
+                      ["free", "sold", "free", "sold", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "sold", "free", "sold", "sold", "free", "free", "free"],
+      ["sold", "free", "free", "free", "sold", "free", "free", "free", "free", "sold"],
+      ["sold", "free", "sold", "free", "sold", "free", "free", "sold", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-14T18:00",
+    "movie": "amateur",
+    "seats": [
+                      ["free", "sold", "free", "free", "free", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "sold", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "sold", "free"],
+      ["free", "free", "free", "sold", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-14T20:15",
+    "movie": "sinners",
+    "seats": [
+              ["free", "sold", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free"],
+          ["free", "free", "free", "free", "free", "free", "sold", "free"],
+          ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "sold", "free", "free", "free", "free"],
+      ["free", "free", "sold", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-15T08:15",
+    "movie": "minecraft",
+    "seats": [
+                      ["free", "free", "free", "sold", "free", "free"],
+                      ["free", "sold", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "sold", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "sold", "free", "free"],
+      ["free", "free", "sold", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-09T08:15",
+    "movie": "amateur",
+    "seats": [
+                      ["free", "free", "free", "free", "free", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "sold", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "sold", "free", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-15T12:15",
+    "movie": "fight_or_flight",
+    "seats": [
+                      ["free", "free", "sold", "free", "sold", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "sold", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "sold", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "sold", "free", "free"],
+      ["free", "free", "sold", "sold", "free", "free", "sold", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-15T14:00",
+    "movie": "shadow_force",
+    "seats": [
+                      ["free", "free", "sold", "free", "free", "free"],
+                      ["free", "free", "free", "free", "free", "sold"],
+              ["free", "sold", "free", "free", "sold", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "sold", "free", "free"],
+      ["free", "free", "free", "sold", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "sold", "free", "sold", "free", "sold", "free", "sold", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-15T15:45",
+    "movie": "accountant2",
+    "seats": [
+                      ["free", "sold", "free", "free", "free", "free"],
+                      ["free", "free", "free", "free", "free", "sold"],
+              ["free", "free", "free", "free", "sold", "free", "free", "free"],
+              ["free", "free", "sold", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "sold", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-15T18:00",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["free", "sold", "free", "free", "free", "sold"],
+                      ["free", "free", "free", "sold", "free", "free"],
+              ["free", "sold", "free", "free", "sold", "sold", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "sold", "free", "sold", "free", "sold", "free", "free", "free"],
+      ["free", "free", "free", "sold", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-15T20:15",
+    "movie": "sinners",
+    "seats": [
+                      ["free", "free", "free", "sold", "free", "free"],
+                      ["free", "sold", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "sold", "free", "free", "free"],
+      ["free", "free", "sold", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-16T08:15",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["free", "free", "free", "free", "free", "sold"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "sold", "free", "sold", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "sold", "free", "free", "free", "sold", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-16T10:30",
+    "movie": "amateur",
+    "seats": [
+                      ["free", "free", "free", "free", "free", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-16T12:45",
+    "movie": "shadow_force",
+    "seats": [
+                      ["free", "sold", "free", "free", "free", "free"],
+                      ["free", "free", "free", "free", "sold", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "sold", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-16T14:30",
+    "movie": "fight_or_flight",
+    "seats": [
+                      ["free", "free", "sold", "free", "sold", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "sold", "free", "sold", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-16T16:15",
+    "movie": "thunderbolts",
+    "seats": [
+                      ["free", "free", "sold", "free", "free", "free"],
+                      ["free", "free", "free", "sold", "free", "free"],
+              ["free", "sold", "free", "free", "free", "sold", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "sold", "sold", "free", "free", "free", "sold", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-16T18:30",
+    "movie": "accountant2",
+    "seats": [
+                      ["free", "free", "free", "free", "sold", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "sold", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  },
+  {
+    "showtime": "2025-05-16T20:45",
+    "movie": "sinners",
+    "seats": [
+                      ["free", "free", "free", "free", "free", "free"],
+                      ["free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+              ["free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"],
+      ["free", "free", "free", "free", "free", "free", "free", "free", "free", "free"]
+    ]
+  }
+]

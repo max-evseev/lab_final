@@ -1,16 +1,21 @@
-﻿import Movie_list from './components/Movie_list'
-import Movie_search from './components/Movie_search'
-import {useState} from "react";
-const all_movies = require('./data/movies.json');
+﻿import Home from './pages/Home'
+import Booking from './pages/Booking'
+import {createBrowserRouter, RouterProvider, Navigate} from 'react-router-dom'
+    const router = createBrowserRouter([{
+    path: '/',
+    element: <Home/>
+    },
+    {
+    path: '/booking/:showtime',
+    element: <Booking/>,
+    errorElement: <p className="not_found">На цей час сеанси відсутні</p>
+    },
+    {
+    path: '/*',
+    element: <Navigate to="/"/>
+    }]);
     export default function App() {
-    const [movie_list, set_list] = useState(all_movies);
         return (
-        <>
-            <Movie_search set_list={set_list}></Movie_search>
-            <div className="main_content">
-                {movie_list.length === 0 && <p className="not_found">По вашому запиту нічого не знайдено</p>}
-                {movie_list.length !== 0 && <Movie_list movies={movie_list}></Movie_list>}    
-            </div>
-        </>
+        <RouterProvider router={router}></RouterProvider>
         );
     }
