@@ -50,3 +50,6 @@
     export function showtime_display(value) {
     return digit_fix(String(new Date(value).getDate())) + '.' + digit_fix(String(new Date(value).getMonth() + 1)) + '.' + String(new Date(value).getFullYear()) + ' ' + digit_fix((String(new Date(value).getHours()))) + ':' + digit_fix((String(new Date(value).getMinutes())));
     }
+    export function seat_display(row, column) {
+    return 'Ряд ' + String(row + 1) + ' Місце ' + String(column + 1);
+    }

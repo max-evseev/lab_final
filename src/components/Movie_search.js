@@ -1,4 +1,4 @@
-﻿import {useState, useEffect} from "react";
+﻿import {useState, useEffect} from 'react';
 import {runtime_display, genre_display, showtime_display} from '../common_functions.js'
 const all_movies = require('../data/movies.json');
 var min_price = null;
@@ -154,7 +154,7 @@ var all_genres = [];
             case 'latest_show': query_result.sort((a, b) => order * (new Date(a.show_schedule[a.show_schedule.length - 1]).getTime() - new Date(b.show_schedule[b.show_schedule.length - 1]).getTime()));
             break;
             }
-        set_list(query_result);
+        set_list(JSON.stringify(query_result));
         }, [filter]);
         useEffect(() => {
             if (active_menu === 'sort') {
@@ -413,7 +413,7 @@ var all_genres = [];
                 </div>}
             </div>
             <div className="parameter_section">
-                <span className="parameter_button" onClick={() => set_filter(JSON.stringify(default_filter))}>
+                <span className="parameter_button clickable" onClick={() => set_filter(JSON.stringify(default_filter))}>
                     <img src={require('../icons/remove.png')} draggable="false" alt=""></img>
                 </span>
             </div>

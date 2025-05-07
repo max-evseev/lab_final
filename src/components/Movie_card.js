@@ -1,5 +1,5 @@
 ﻿import {runtime_display, genre_display, showtime_display} from '../common_functions.js'
-import {useState} from "react";
+import {useState} from 'react';
     export default function Movie_card({ movie_info }) {
     const [highlight_status, set_highlight] = useState('');
         function genres_display() {
