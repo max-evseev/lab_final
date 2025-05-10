@@ -371,7 +371,7 @@ margin-bottom: -1px;
 div.criteria_sort_section span.available {
 cursor: pointer;
 }
-.disable span.selected_sort {
+.disable span.selected_sort, span.seat_selection.free.unselected.disable {
 animation-name: none;
 }
 span.selected_sort {
@@ -394,7 +394,7 @@ font-size: 60px;
 div.booking_main_content {
 display: flex;
 flex-wrap: wrap;
-align-items: center;
+align-items: flex-start;
 justify-content: space-evenly;
 z-index: 1;
 position: relative;
@@ -425,6 +425,19 @@ border-radius: 20px;
 }
 span.seat_selection.free {
 background-color: rgb(20, 0, 40);
+cursor: pointer;
+}
+span.seat_selection.free.selected {
+animation-name: seat_highlight;
+animation-fill-mode: forwards;
+animation-duration: 250ms;
+animation-timing-function: ease-in;
+}
+span.seat_selection.free.unselected {
+animation-name: seat_highlight_back;
+animation-fill-mode: forwards;
+animation-duration: 250ms;
+animation-timing-function: ease-out;
 }
 span.seat_selection.sold {
 background-color: rgb(255, 225, 95);
@@ -434,8 +447,7 @@ height: 175px;
 width: 300px;
 user-select: none;
 }
-div.cinema_side_content {
-height: 600px;
+div.cinema_movie_section {
 width: 700px;
 display: flex;
 flex-direction: column;
@@ -555,6 +567,22 @@ white-space: nowrap;
     color: rgb(20, 0, 40);
     }
 }
+@keyframes seat_highlight {
+    from {
+    border: 0;
+    }
+    to {
+    border: 5px solid rgb(255, 215, 30);
+    }
+}
+@keyframes seat_highlight_back {
+    from {
+    border: 5px solid rgb(255, 215, 30);
+    }
+    to {
+    border: 0;
+    }
+}
 @media (max-width: 1400px) or (max-height: 700px) {
     div.search_section {
     font-size: 45px;
@@ -639,9 +667,6 @@ white-space: nowrap;
     p.not_found {
     height: 750px;
     }
-    div.cinema_side_content {
-    height: 625px;
-    }
     div.selected_seats {
     font-size: 40px;
     height: 75px;
@@ -672,7 +697,7 @@ white-space: nowrap;
     flex-direction: column;
     align-items: center;
     }
-    div.cinema_side_content {
+    div.cinema_movie_section {
     width: 500px;
     }
     div.selected_seats {
