@@ -20,7 +20,7 @@ import {useState} from 'react';
                 <p className="movie_subtitle">{genres_display()}</p>
                 <p className="movie_subtitle">{runtime_display(movie_info.runtime)} • {String(movie_info.age_restriction)}+</p>
                 <div className="schedule_section">
-                    {movie_info.show_schedule.map((showtime) => <span className="movie_showtime"><a href={"/booking/" + showtime}>{showtime_display(showtime)}</a></span>)}
+                    {movie_info.show_schedule.map((showtime) => <a className="movie_showtime" href={"/booking/" + showtime}>{showtime_display(showtime)}</a>)}
                 </div>
                 <p className="movie_price">{String(movie_info.price.toFixed(2)) + ' ГРН.'}</p>
             </div>

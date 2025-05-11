@@ -12,7 +12,7 @@ font-weight: 600;
 p {
 margin: 0;
 }
-div, button, input, header, span, img {
+div, button, input, header, span, img, a {
 box-sizing: border-box;
 }
 span.clickable {
@@ -21,8 +21,6 @@ cursor: pointer;
 a {
 color: inherit;
 text-decoration: inherit;
-width: fit-content;
-height: fit-content;
 }
 ::selection {
 background-color: rgb(255, 215, 30);
@@ -34,6 +32,32 @@ display: none;
 ::-webkit-scrollbar-thumb {
 display: none;
 }
+button {
+font-family: inherit;
+font-weight: inherit;
+background-color: rgb(255, 225, 95);
+border: 0;
+color: rgb(20, 0, 40);
+border-radius: 20px;
+cursor: pointer;
+}
+input {
+background-color: rgba(25, 0, 50, 0);
+font-family: inherit;
+font-weight: inherit;
+border-radius: 20px;
+color: rgb(255, 225, 95);
+border: 2px solid rgb(255, 225, 95);
+outline: none;
+}
+input:focus {
+color: rgb(255, 215, 30);
+border: 2px solid rgb(255, 215, 30);
+}
+input.search_input::placeholder {
+color: rgb(255, 225, 95);
+font-weight: 100;
+}
 header {
 font-family: 'Bauhaus 93';
 font-size: 75px;
@@ -44,10 +68,31 @@ width: 100vw;
 height: 100px;
 user-select: none;
 box-shadow: 0 5px 15px 0 rgb(0, 0, 0);
-display: flex;
-padding-left: 25px;
 z-index: 4;
 position: relative;
+padding-left: 25px;
+padding-right: 25px;
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+}
+header a {
+width: fit-content;
+height: 100px;
+}
+a.go_to_booking {
+background-color: rgb(255, 225, 95);
+border-radius: 20px;
+cursor: pointer;
+height: 75px;
+width: 75px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+a.go_to_booking img {
+width: 60px;
+height: 60px;
 }
 div.home_main_content {
 display: flex;
@@ -135,22 +180,22 @@ flex-wrap: wrap;
 align-content: flex-start;
 height: 200px;
 }
-span.movie_showtime {
+a.movie_showtime {
 font-size: 15px;
 background-color: rgb(255, 225, 95);
 color: rgb(20, 0, 40);
 border-radius: 20px;
+margin: 5px;
 padding-left: 5px;
 padding-right: 5px;
-margin: 5px;
 }
-div.movie_card.active span.movie_showtime {
+div.movie_card.active a.movie_showtime {
 animation-name: showtime_highlight;
 animation-fill-mode: forwards;
 animation-duration: 250ms;
 animation-timing-function: ease-in;
 }
-div.movie_card.inactive span.movie_showtime {
+div.movie_card.inactive a.movie_showtime {
 animation-name: showtime_highlight_back;
 animation-fill-mode: forwards;
 animation-duration: 250ms;
@@ -181,25 +226,10 @@ margin-left: 5px;
 margin-right: 5px;
 }
 input.search_input {
-background-color: rgb(25, 0, 50);
-font-family: inherit;
 font-size: inherit;
-font-weight: inherit;
 width: 250px;
 height: 50px;
-border-radius: 20px;
-color: rgb(255, 225, 95);
-border: 2px solid rgb(255, 225, 95);
-outline: none;
 padding-left: 45px;
-}
-input.search_input:focus {
-color: rgb(255, 215, 30);
-border: 2px solid rgb(255, 215, 30);
-}
-input.search_input::placeholder {
-color: rgb(255, 225, 95);
-font-weight: 100;
 }
 div.parameter_section {
 margin-left: 5px;
@@ -262,14 +292,17 @@ border-radius: 20px;
 div.range_slider input {
 position: absolute;
 width: 350px;
-transform: translate(-10px, -55%);
+transform: translate(-10px, -50%);
 background: none;
 appearance: none;
 pointer-events: none;
+border: 0;
+margin: 0;
 }
 input[type="range"]::-webkit-slider-thumb {
 width: 30px;
 height: 30px;
+transform: translateX(0.35px);
 appearance: none;
 background-color: rgb(255, 225, 95);
 border-radius: 20px;
@@ -453,37 +486,27 @@ display: flex;
 flex-direction: column;
 align-items: center;
 padding-top: 10px;
+font-size: 45px;
+text-align: center;
 }
-p.booking_movie_title, div.selected_seats, button.booking_button {
+div.cinema_movie_section p, div.selected_seats {
 margin-top: 5px;
 margin-bottom: 5px;
 }
-button.booking_button {
-font-family: inherit;
-font-weight: inherit;
-font-size: 35px;
-background-color: rgb(255, 225, 95);
-border: 0;
-color: rgb(20, 0, 40);
-border-radius: 20px;
-width: 475px;
-height: 50px;
-cursor: pointer;
-}
 div.selected_seats {
 display: flex;
-font-size: 20px;
+font-size: 40px;
 justify-content: flex-start;
 align-items: center;
 width: 700px;
-height: 45px;
+height: 70px;
 background-color: rgb(30, 0, 60);
 border-radius: 20px;
 padding-left: 10px;
 }
 span.unselect_all {
-width: 35px;
-height: 35px;
+width: 60px;
+height: 60px;
 border: 2px solid rgb(255, 225, 95);
 border-radius: 20px;
 display: flex;
@@ -492,7 +515,7 @@ align-items: center;
 margin-right: 10px;
 }
 span.selected_seats_list {
-width: 475px;
+width: 325px;
 display: inline-flex;
 overflow-x: scroll;
 white-space: nowrap;
@@ -614,7 +637,7 @@ white-space: nowrap;
     background-color: rgb(20, 0, 40);
     border-radius: 20px;
     }
-    span.movie_showtime {
+    a.movie_showtime {
     font-size: 30px;
     text-align: center;
     margin: 10px;
@@ -632,11 +655,12 @@ white-space: nowrap;
     }
     div.range_slider input {
     width: 450px;
-    transform: translate(-20px, -55%);  
+    transform: translate(-20px, -50%);  
     }
     input[type="range"]::-webkit-slider-thumb {
     width: 50px;
     height: 50px;
+    transform: translateX(0px);
     }
     div.range_values {
     font-size: 20px;
@@ -666,10 +690,6 @@ white-space: nowrap;
     }
     p.not_found {
     height: 750px;
-    }
-    div.selected_seats {
-    font-size: 40px;
-    height: 75px;
     }
     span.unselect_all {
     width: 60px;
