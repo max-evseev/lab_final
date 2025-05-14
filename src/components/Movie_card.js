@@ -1,10 +1,8 @@
 ﻿import {runtime_display, genre_list_display, showtime_display} from '../services/display_functions.js'
-import {useState} from 'react';
-    export default function Movie_card({ movie_info }) {
-    const [highlight_status, set_highlight] = useState('');
+    export default function Movie_card({movie_info}) {
         return (
-        <div className={"movie_card " + highlight_status} onMouseOver={() => set_highlight('active')} onMouseOut={() => set_highlight('inactive')}>
-            <img className="movie_poster" src={require('../data/' + movie_info.id + '.png')} alt="" draggable="false"></img>
+        <div className="movie_card">
+            <img className="movie_poster" key={movie_info.id} src={require('../data/' + movie_info.id + '.png')} alt="" draggable="false"></img>
             <div className="movie_side_info">
                 <p className="movie_title">{movie_info.display_name}</p>
                 <p className="movie_subtitle">{genre_list_display(movie_info.genres)}</p>

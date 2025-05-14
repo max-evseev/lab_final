@@ -46,13 +46,16 @@ background-color: rgba(25, 0, 50, 0);
 font-family: inherit;
 font-weight: inherit;
 border-radius: 20px;
+outline: none;
 color: rgb(255, 225, 95);
 border: 2px solid rgb(255, 225, 95);
-outline: none;
+transition: color 250ms, border 250ms;
+transition-timing-function: ease-in;
 }
 input:focus {
 color: rgb(255, 215, 30);
 border: 2px solid rgb(255, 215, 30);
+transition-timing-function: ease-out;
 }
 input.search_input::placeholder {
 color: rgb(255, 225, 95);
@@ -115,25 +118,21 @@ div.movie_card {
 height: 450px;
 width: 650px;
 margin: 25px;
-background-color: rgb(30, 0, 60);
 border-radius: 25px;
-box-shadow: 0 0 20px 5px rgb(0, 0, 0);
 padding: 20px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+background-color: rgb(30, 0, 60);
+box-shadow: 0 0 20px 5px rgb(0, 0, 0);
+transition: background-color 250ms, color 250ms, box-shadow 250ms; 
+transition-timing-function: ease-in;
 }
-div.movie_card.active {
-animation-name: cart_highlight;
-animation-fill-mode: forwards;
-animation-duration: 250ms;
-animation-timing-function: ease-in;
-}
-div.movie_card.inactive {
-animation-name: cart_highlight_back;
-animation-fill-mode: forwards;
-animation-duration: 250ms;
-animation-timing-function: ease-out;
+div.movie_card:hover {
+background-color: rgb(35, 0, 70);
+box-shadow: 0 0 10px 5px rgb(255, 215, 30);
+color: rgb(255, 215, 30);
+transition-timing-function: ease-out;
 }
 div.movie_side_info {
 display: flex;
@@ -145,21 +144,15 @@ height: 425px;
 img.movie_poster {
 width: 250px;
 height: 375px;
-border: 4px solid rgb(255, 225, 95);
 border-radius: 10px;
 user-select: none;
+border: 4px solid rgb(255, 225, 95);
+transition: border 250ms; 
+transition-timing-function: ease-in;
 }
-div.movie_card.active img.movie_poster {
-animation-name: poster_highlight;
-animation-fill-mode: forwards;
-animation-duration: 250ms;
-animation-timing-function: ease-in;
-}
-div.movie_card.inactive img.movie_poster {
-animation-name: poster_highlight_back;
-animation-fill-mode: forwards;
-animation-duration: 250ms;
-animation-timing-function: ease-out;
+div.movie_card:hover img.movie_poster {
+border: 4px solid rgb(255, 215, 30);
+transition-timing-function: ease-out;
 }
 p.movie_title {
 display: inline;
@@ -182,24 +175,19 @@ height: 200px;
 }
 a.movie_showtime {
 font-size: 15px;
-background-color: rgb(255, 225, 95);
-color: rgb(20, 0, 40);
 border-radius: 20px;
 margin: 5px;
 padding-left: 5px;
 padding-right: 5px;
+background-color: rgb(255, 225, 95);
+color: rgb(20, 0, 40);
+transition: background-color 250ms, color 250ms; 
+transition-timing-function: ease-in;
 }
-div.movie_card.active a.movie_showtime {
-animation-name: showtime_highlight;
-animation-fill-mode: forwards;
-animation-duration: 250ms;
-animation-timing-function: ease-in;
-}
-div.movie_card.inactive a.movie_showtime {
-animation-name: showtime_highlight_back;
-animation-fill-mode: forwards;
-animation-duration: 250ms;
-animation-timing-function: ease-out;
+div.movie_card:hover a.movie_showtime {
+background-color: rgb(255, 215, 30);
+color: rgb(25, 0, 50);
+transition-timing-function: ease-out;
 }
 div.search_section {
 display: flex;
@@ -269,6 +257,16 @@ padding-bottom: 10px;
 display: flex;
 flex-direction: column;
 align-items: center;
+opacity: 1;
+transition: opacity 250ms;
+transition-timing-function: ease-in;
+animation-name: appear;
+animation-duration: 250ms;
+animation-timing-function: ease-in;
+}
+div.parameter_menu.fading {
+opacity: 0;
+transition-timing-function: ease-out;
 }
 p.menu_title {
 font-size: 30px;
@@ -404,16 +402,14 @@ margin-bottom: -1px;
 div.criteria_sort_section span.available {
 cursor: pointer;
 }
-.disable span.selected_sort, span.seat_selection.free.unselected.disable, span.seat_selection.free.selected.disable {
-animation-name: none;
+div.order_sort_section span, div.criteria_sort_section span {
+transition: background-color 250ms, color 250ms; 
+transition-timing-function: ease-in;
 }
 span.selected_sort {
 background-color: rgb(255, 225, 95);
 color: rgb(20, 0, 40);
-animation-name: sort_highlight;
-animation-fill-mode: forwards;
-animation-duration: 250ms;
-animation-timing-function: ease-in;
+transition-timing-function: ease-out;
 }
 p.not_found {
 height: 600px;
@@ -458,20 +454,16 @@ border-radius: 20px;
 }
 span.seat_selection.free {
 background-color: rgb(20, 0, 40);
+transition: border 250ms;
 cursor: pointer;
 }
-span.seat_selection.free.selected {
-animation-name: seat_highlight;
-animation-fill-mode: forwards;
-animation-duration: 250ms;
-animation-timing-function: ease-in;
-border: 5px solid rgb(255, 215, 30);
-}
 span.seat_selection.free.unselected {
-animation-name: seat_highlight_back;
-animation-fill-mode: forwards;
-animation-duration: 250ms;
-animation-timing-function: ease-out;
+border: 5px solid rgba(255, 215, 30, 0);
+transition-timing-function: ease-in;
+}
+span.seat_selection.free.selected {
+border: 5px solid rgb(255, 215, 30);
+transition-timing-function: ease-out;
 }
 span.seat_selection.sold {
 background-color: rgb(255, 225, 95);
@@ -521,90 +513,12 @@ display: inline-flex;
 overflow-x: scroll;
 white-space: nowrap;
 }
-@keyframes cart_highlight {
+@keyframes appear {
     from {
-    background-color: rgb(30, 0, 60);
-    box-shadow: 0 0 20px 5px rgb(0, 0, 0);
-    color: rgb(255, 225, 95);
+    opacity: 0;
     }
     to {
-    background-color: rgb(35, 0, 70);
-    box-shadow: 0 0 10px 5px rgb(255, 215, 30);
-    color: rgb(255, 215, 30);
-    }
-}
-@keyframes cart_highlight_back {
-    from {
-    background-color: rgb(35, 0, 70);
-    box-shadow: 0 0 10px 5px rgb(255, 215, 30);
-    color: rgb(255, 215, 30);
-    }
-    to {
-    background-color: rgb(30, 0, 60);
-    box-shadow: 0 0 20px 5px rgb(0, 0, 0);
-    color: rgb(255, 225, 95);
-    }
-}
-@keyframes poster_highlight {
-    from {
-    border: 4px solid rgb(255, 225, 95);
-    }
-    to {
-    border: 4px solid rgb(255, 215, 30);
-    }
-}
-@keyframes poster_highlight_back {
-    from {
-    border: 4px solid rgb(255, 215, 30);
-    }
-    to {
-    border: 4px solid rgb(255, 225, 95);
-    }
-}
-@keyframes showtime_highlight {
-    from {
-    background-color: rgb(255, 225, 95);
-    color: rgb(20, 0, 40);
-    }
-    to {
-    background-color: rgb(255, 215, 30);
-    color: rgb(25, 0, 50);
-    }
-}
-@keyframes showtime_highlight_back {
-    from {
-    background-color: rgb(255, 215, 30);
-    color: rgb(25, 0, 50);
-    }
-    to {
-    background-color: rgb(255, 225, 95);
-    color: rgb(20, 0, 40);
-    }
-}
-@keyframes sort_highlight {
-    from {
-    background-color:  rgba(30, 0, 60, 0);
-    color: rgb(255, 225, 95);
-    }
-    to {
-    background-color: rgb(255, 225, 95);
-    color: rgb(20, 0, 40);
-    }
-}
-@keyframes seat_highlight {
-    from {
-    border: 0;
-    }
-    to {
-    border: 5px solid rgb(255, 215, 30);
-    }
-}
-@keyframes seat_highlight_back {
-    from {
-    border: 5px solid rgb(255, 215, 30);
-    }
-    to {
-    border: 0;
+    opacity: 1;
     }
 }
 @media (max-width: 1400px) or (max-height: 700px) {

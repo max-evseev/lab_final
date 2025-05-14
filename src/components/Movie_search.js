@@ -1,5 +1,6 @@
 ﻿import {useState, useEffect} from 'react';
 import {runtime_display, genre_display, showtime_display} from '../services/display_functions.js'
+import Parameter_section from './Parameter_section'
 const all_movies = require('../data/movies.json');
 var min_price = null;
 var max_price = null;
@@ -77,11 +78,8 @@ var all_genres = [];
     sorting: ['none', 'none']
     }
     export default function Movie_search({set_list}) {
-    const [active_menu, set_active_menu] = useState(null);
     const [filter, set_filter] = useState(JSON.stringify(default_filter));
-    const [sort_animations, set_sort_animations] = useState(' disable');
         useEffect(() => {
-        set_sort_animations('');
         let query_result = [];
             all_movies.forEach((movie) => {
             let search_condition = false;
@@ -156,11 +154,6 @@ var all_genres = [];
             }
         set_list(JSON.stringify(query_result));
         }, [filter]);
-        useEffect(() => {
-            if (active_menu === 'sort') {
-            set_sort_animations(' disable');
-            }
-        }, [active_menu]);
         const change_genres = (e, genre) => {
         let filter_new = JSON.parse(filter);
             switch (e.target.checked) {
@@ -249,22 +242,6 @@ var all_genres = [];
             set_filter(JSON.stringify(filter_new));
             }
         }
-        function layer_priority(value) {
-            if (active_menu === value) {
-            return ' active_menu';
-            }
-            else {
-            return '';
-            }
-        }
-        function menu_check(value) {
-            if (active_menu === value) {
-            return true;
-            }
-            else {
-            return false;
-            }
-        }
         function sort_checker(value, position) {
             if (value === JSON.parse(filter).sorting[position]) {
             return ' selected_sort';
@@ -287,131 +264,121 @@ var all_genres = [];
                 <img className="input_icon" src={require('../icons/search.png')} draggable="false" alt=""></img>
                 <input className="search_input" placeholder="Пошук" value={JSON.parse(filter).query} onChange={(e) => set_query(e)}></input>
             </div>
-            <div className={"parameter_section" + layer_priority('filter')} onMouseOver={() => set_active_menu('filter')} onMouseOut={() => set_active_menu(null)}>
-                <span className="parameter_button">
-                    <img src={require('../icons/filter.png')} draggable="false" alt=""></img>
-                </span>
-                {menu_check('filter') && <div className="parameter_menu filter">
-                    <p className="menu_title">
+            <Parameter_section type="filter">
+                <p className="menu_title">
+                    Ціна
+                </p>
+                <div className="range_slider">
+                    <input type="range" min={min_price} max={max_price} value={JSON.parse(filter).price[0]} onChange={(e) => change_boundaries(e, 'price', 'min')} step="0.25"></input>
+                    <input type="range" min={min_price} max={max_price} value={JSON.parse(filter).price[1]} onChange={(e) => change_boundaries(e, 'price', 'max')} step="0.25"></input>
+                </div>
+                <div className="range_values">
+                    <p>
+                        {String(JSON.parse(filter).price[0].toFixed(2))} ГРН.
+                    </p>
+                    <p>
+                        {String(JSON.parse(filter).price[1].toFixed(2))} ГРН.
+                    </p>
+                </div>
+                <p className="menu_title">
+                    Час сеансу
+                </p>
+                <div className="range_slider">
+                    <input type="range" min={min_showtime} max={max_showtime} value={JSON.parse(filter).showtime[0]} onChange={(e) => change_boundaries(e, 'showtime', 'min')} step="900000"></input>
+                    <input type="range" min={min_showtime} max={max_showtime} value={JSON.parse(filter).showtime[1]} onChange={(e) => change_boundaries(e, 'showtime', 'max')} step="900000"></input>
+                </div>
+                <div className="range_values">
+                    <p>
+                        {showtime_display(JSON.parse(filter).showtime[0])}
+                    </p>
+                    <p>
+                        {showtime_display(JSON.parse(filter).showtime[1])}
+                    </p>
+                </div>
+                <p className="menu_title">
+                    Тривалість
+                </p>
+                <div className="range_slider">
+                    <input type="range" min={min_runtime} max={max_runtime} value={JSON.parse(filter).runtime[0]} onChange={(e) => change_boundaries(e, 'runtime', 'min')} step="1"></input>
+                    <input type="range" min={min_runtime} max={max_runtime} value={JSON.parse(filter).runtime[1]} onChange={(e) => change_boundaries(e, 'runtime', 'max')} step="1"></input>
+                </div>
+                <div className="range_values">
+                    <p>
+                        {runtime_display(JSON.parse(filter).runtime[0])}
+                    </p>
+                    <p>
+                        {runtime_display(JSON.parse(filter).runtime[1])}
+                    </p>
+                </div>
+                <p className="menu_title">
+                    Вікові обмеження
+                </p>
+                <div className="range_slider">
+                    <input type="range" min={min_restriction} max={max_restriction} value={JSON.parse(filter).restriction[0]} onChange={(e) => change_boundaries(e, 'restriction', 'min')} step="1"></input>
+                    <input type="range" min={min_restriction} max={max_restriction} value={JSON.parse(filter).restriction[1]} onChange={(e) => change_boundaries(e, 'restriction', 'max')} step="1"></input>
+                </div>
+                <div className="range_values">
+                    <p>
+                        {String(JSON.parse(filter).restriction[0])}+
+                    </p>
+                    <p>
+                        {String(JSON.parse(filter).restriction[1])}+
+                    </p>
+                </div>
+                <p className="menu_title">
+                    Жанри
+                </p>
+                <div className="genres_section">
+                    {all_genres.map((genre) => <div className="checkbox_section">
+                        <input type="checkbox" checked={JSON.parse(filter).genres.includes(genre)} onChange={(e) => change_genres(e, genre)}></input>
+                        <span className="check_button">
+                            {JSON.parse(filter).genres.includes(genre) && <img src={require('../icons/check.png')} draggable="false" alt=""></img>}
+                        </span>
+                        <p>
+                            {genre_display(genre)}
+                        </p>
+                    </div>)}
+                </div>
+            </Parameter_section>
+            <Parameter_section type="sort">
+                <p className="menu_title">
+                    Порядок
+                </p>
+                <div className="order_sort_section">
+                    <span className={"left" + sort_checker('none', 0)} onClick={() => change_order('none')}>
+                        Відсутній
+                    </span>
+                    <span className={"center" + sort_checker('asc', 0)} onClick={() => change_order('asc')}>
+                        Зростаючий
+                    </span>
+                    <span className={"right" + sort_checker('desc', 0)} onClick={() => change_order('desc')}>
+                        Спадний
+                    </span>
+                </div>
+                <p className="menu_title">
+                    Критерій
+                </p>
+                <div className="criteria_sort_section">
+                    <span className={"top" + sort_checker('name', 1) + sort_aviability_checker()} onClick={() => change_criteria('name')}>
+                        Назва
+                    </span>
+                    <span className={"center" + sort_checker('price', 1) + sort_aviability_checker()} onClick={() => change_criteria('price')}>
                         Ціна
-                    </p>
-                    <div className="range_slider">
-                        <input type="range" min={min_price} max={max_price} value={JSON.parse(filter).price[0]} onChange={(e) => change_boundaries(e, 'price', 'min')} step="0.25"></input>
-                        <input type="range" min={min_price} max={max_price} value={JSON.parse(filter).price[1]} onChange={(e) => change_boundaries(e, 'price', 'max')} step="0.25"></input>
-                    </div>
-                    <div className="range_values">
-                        <p>
-                            {String(JSON.parse(filter).price[0].toFixed(2))} ГРН.
-                        </p>
-                        <p>
-                            {String(JSON.parse(filter).price[1].toFixed(2))} ГРН.
-                        </p>
-                    </div>
-                    <p className="menu_title">
-                        Час сеансу
-                    </p>
-                    <div className="range_slider">
-                        <input type="range" min={min_showtime} max={max_showtime} value={JSON.parse(filter).showtime[0]} onChange={(e) => change_boundaries(e, 'showtime', 'min')} step="900000"></input>
-                        <input type="range" min={min_showtime} max={max_showtime} value={JSON.parse(filter).showtime[1]} onChange={(e) => change_boundaries(e, 'showtime', 'max')} step="900000"></input>
-                    </div>
-                    <div className="range_values">
-                        <p>
-                            {showtime_display(JSON.parse(filter).showtime[0])}
-                        </p>
-                        <p>
-                            {showtime_display(JSON.parse(filter).showtime[1])}
-                        </p>
-                    </div>
-                    <p className="menu_title">
+                    </span>
+                    <span className={"center" + sort_checker('runtime', 1) + sort_aviability_checker()} onClick={() => change_criteria('runtime')}>
                         Тривалість
-                    </p>
-                    <div className="range_slider">
-                            <input type="range" min={min_runtime} max={max_runtime} value={JSON.parse(filter).runtime[0]} onChange={(e) => change_boundaries(e, 'runtime', 'min')} step="1"></input>
-                            <input type="range" min={min_runtime} max={max_runtime} value={JSON.parse(filter).runtime[1]} onChange={(e) => change_boundaries(e, 'runtime', 'max')} step="1"></input>
-                    </div>
-                    <div className="range_values">
-                        <p>
-                            {runtime_display(JSON.parse(filter).runtime[0])}
-                        </p>
-                        <p>
-                            {runtime_display(JSON.parse(filter).runtime[1])}
-                        </p>
-                    </div>
-                    <p className="menu_title">
-                        Вікові обмеження
-                    </p>
-                    <div className="range_slider">
-                        <input type="range" min={min_restriction} max={max_restriction} value={JSON.parse(filter).restriction[0]} onChange={(e) => change_boundaries(e, 'restriction', 'min')} step="1"></input>
-                        <input type="range" min={min_restriction} max={max_restriction} value={JSON.parse(filter).restriction[1]} onChange={(e) => change_boundaries(e, 'restriction', 'max')} step="1"></input>
-                    </div>
-                    <div className="range_values">
-                        <p>
-                            {String(JSON.parse(filter).restriction[0])}+
-                        </p>
-                        <p>
-                            {String(JSON.parse(filter).restriction[1])}+
-                        </p>
-                    </div>
-                    <p className="menu_title">
-                        Жанри
-                    </p>
-                    <div className="genres_section">
-                        {all_genres.map((genre) => <div className="checkbox_section">
-                            <input type="checkbox" checked={JSON.parse(filter).genres.includes(genre)} onChange={(e) => change_genres(e, genre)}></input>
-                            <span className="check_button">
-                                {JSON.parse(filter).genres.includes(genre) && <img src={require('../icons/check.png')} draggable="false" alt=""></img>}
-                            </span>
-                            <p>
-                                {genre_display(genre)}
-                            </p>
-                        </div>)}
-                    </div>
-                </div>}
-            </div>
-            <div className={"parameter_section" + layer_priority('sort') + sort_animations} onMouseOver={() => set_active_menu('sort')} onMouseOut={() => set_active_menu(null)}>
-                <span className="parameter_button">
-                    <img src={require('../icons/sort.png')} draggable="false" alt=""></img>
-                </span>
-                {menu_check('sort') && <div className="parameter_menu sort">
-                    <p className="menu_title">
-                        Порядок
-                    </p>
-                    <div className="order_sort_section">
-                        <span className={"left" + sort_checker('none', 0)} onClick={() => change_order('none')}>
-                            Відсутній
-                        </span>
-                        <span className={"center" + sort_checker('asc', 0)} onClick={() => change_order('asc')}>
-                            Зростаючий
-                        </span>
-                        <span className={"right" + sort_checker('desc', 0)} onClick={() => change_order('desc')}>
-                            Спадний
-                        </span>
-                    </div>
-                    <p className="menu_title">
-                        Критерій
-                    </p>
-                    <div className="criteria_sort_section">
-                        <span className={"top" + sort_checker('name', 1) + sort_aviability_checker()} onClick={() => change_criteria('name')}>
-                                Назва
-                        </span>
-                        <span className={"center" + sort_checker('price', 1) + sort_aviability_checker()} onClick={() => change_criteria('price')}>
-                            Ціна
-                        </span>
-                        <span className={"center" + sort_checker('runtime', 1) + sort_aviability_checker()} onClick={() => change_criteria('runtime')}>
-                            Тривалість
-                        </span>
-                        <span className={"center" + sort_checker('restriction', 1) + sort_aviability_checker()} onClick={() => change_criteria('restriction')}>
-                            Вікове обмеження
-                        </span>
-                        <span className={"center" + sort_checker('closest_show', 1) + sort_aviability_checker()} onClick={() => change_criteria('closest_show')}>
-                            Найближчий сеанс
-                        </span>
-                        <span className={"bottom" + sort_checker('latest_show', 1) + sort_aviability_checker()} onClick={() => change_criteria('latest_show')}>
-                            Найпізніший сеанс
-                        </span>
-                    </div>
-                </div>}
-            </div>
+                    </span>
+                    <span className={"center" + sort_checker('restriction', 1) + sort_aviability_checker()} onClick={() => change_criteria('restriction')}>
+                        Вікове обмеження
+                    </span>
+                    <span className={"center" + sort_checker('closest_show', 1) + sort_aviability_checker()} onClick={() => change_criteria('closest_show')}>
+                        Найближчий сеанс
+                    </span>
+                    <span className={"bottom" + sort_checker('latest_show', 1) + sort_aviability_checker()} onClick={() => change_criteria('latest_show')}>
+                        Найпізніший сеанс
+                    </span>
+                </div>
+            </Parameter_section>
             <div className="parameter_section">
                 <span className="parameter_button clickable" onClick={() => set_filter(JSON.stringify(default_filter))}>
                     <img src={require('../icons/remove.png')} draggable="false" alt=""></img>
