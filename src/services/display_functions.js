@@ -47,6 +47,16 @@
         break;
         }
     }
+    export function genre_list_display(value) {
+    let display_value = '';
+        value.forEach((genre, index) => {
+        display_value += genre_display(genre);
+            if (index !== value.length - 1) {
+            display_value += ' • ';
+            }
+        });
+    return display_value;
+    }
     export function showtime_display(value) {
     return digit_fix(String(new Date(value).getDate())) + '.' + digit_fix(String(new Date(value).getMonth() + 1)) + '.' + String(new Date(value).getFullYear()) + ' ' + digit_fix((String(new Date(value).getHours()))) + ':' + digit_fix((String(new Date(value).getMinutes())));
     }

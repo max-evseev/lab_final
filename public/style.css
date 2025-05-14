@@ -404,7 +404,7 @@ margin-bottom: -1px;
 div.criteria_sort_section span.available {
 cursor: pointer;
 }
-.disable span.selected_sort, span.seat_selection.free.unselected.disable {
+.disable span.selected_sort, span.seat_selection.free.unselected.disable, span.seat_selection.free.selected.disable {
 animation-name: none;
 }
 span.selected_sort {
@@ -465,6 +465,7 @@ animation-name: seat_highlight;
 animation-fill-mode: forwards;
 animation-duration: 250ms;
 animation-timing-function: ease-in;
+border: 5px solid rgb(255, 215, 30);
 }
 span.seat_selection.free.unselected {
 animation-name: seat_highlight_back;

@@ -1,19 +1,20 @@
 ﻿import Home from './pages/Home'
+import Cinema from './pages/Cinema'
 import Booking from './pages/Booking'
-import Booking_form from './pages/Booking_form'
 import {createBrowserRouter, RouterProvider, Navigate} from 'react-router-dom'
+import {Context_provider} from './services/booking_service'
     const router = createBrowserRouter([{
     path: '/',
     element: <Home/>
     },
     {
     path: '/booking/:showtime',
-    element: <Booking/>,
+    element: <Cinema/>,
     errorElement: <p className="not_found">На цей час сеанси відсутні</p>
     },
     {
     path: '/booking',
-    element: <Booking_form/>
+    element: <Booking/>
     },
     {
     path: '/*',
@@ -21,6 +22,8 @@ import {createBrowserRouter, RouterProvider, Navigate} from 'react-router-dom'
     }]);
     export default function App() {
         return (
-        <RouterProvider router={router}></RouterProvider>
+        <Context_provider>
+            <RouterProvider router={router}></RouterProvider>
+        </Context_provider>
         );
     }

@@ -1,5 +1,5 @@
 ﻿import {useState, useEffect} from 'react';
-import {runtime_display, genre_display, showtime_display} from '../common_functions.js'
+import {runtime_display, genre_display, showtime_display} from '../services/display_functions.js'
 const all_movies = require('../data/movies.json');
 var min_price = null;
 var max_price = null;
