@@ -8,8 +8,8 @@ const all_movies = require('../data/movies.json');
         <>
             <Movie_search set_list={set_list}></Movie_search>
             <div className="home_main_content">
-                {JSON.parse(movie_list).length === 0 && <p className="not_found">по вашому запиту нічого не знайдено</p>}
-                {JSON.parse(movie_list).length !== 0 && <Movie_list movies={movie_list}></Movie_list>}
+                {JSON.parse(movie_list).length === 0 && <p className="not_found">По вашому запиту нічого не знайдено</p>}
+                {JSON.parse(movie_list).length !== 0 && <Movie_list movies={JSON.parse(movie_list)}></Movie_list>}
             </div>
         </>
         );

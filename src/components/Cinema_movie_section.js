@@ -1,5 +1,5 @@
 ﻿import {useState} from 'react'
-import {showtime_display, seat_display} from '../services/display_functions.js'
+import {showtime_display, seat_list_display} from '../services/display_functions.js'
     export default function Cinema_movie_section({show_info, booking_list, change_selected}) {
     const [movie_info] = useState(JSON.stringify(require('../data/movies.json').find(({id}) => id === show_info.movie)));
         function clear_selected() {
@@ -16,7 +16,7 @@ import {showtime_display, seat_display} from '../services/display_functions.js'
                     <span className="unselect_all clickable" onClick={() => clear_selected()}>
                         <img src={require('../icons/remove.png')} draggable="false" alt=""></img>
                     </span>
-                    <p>Обрані місця: <span className="selected_seats_list">{JSON.parse(booking_list)[JSON.parse(booking_list).findIndex(item => item.showtime === show_info.showtime)].seats.map((seat, index) => <><>{seat_display(seat[0], seat[1])}</>{index !== JSON.parse(booking_list)[JSON.parse(booking_list).findIndex(item => item.showtime === show_info.showtime)].seats.length - 1 && <>, </>}</>)}</span></p>
+                    <p>Обрані місця: <span className="selected_seats_list">{seat_list_display(JSON.parse(booking_list)[JSON.parse(booking_list).findIndex(item => item.showtime === show_info.showtime)].seats)}</span></p>
                 </div>
             </>}
         </div>

@@ -1,4 +1,4 @@
-﻿import {runtime_display, genre_list_display, showtime_display} from '../services/display_functions.js'
+﻿import {runtime_display, genre_list_display, showtime_display, price_display} from '../services/display_functions.js'
     export default function Movie_card({movie_info}) {
         return (
         <div className="movie_card">
@@ -10,7 +10,7 @@
                 <div className="schedule_section">
                     {movie_info.show_schedule.map((showtime) => <a className="movie_showtime" href={"/booking/" + showtime}>{showtime_display(showtime)}</a>)}
                 </div>
-                <p className="movie_price">{String(movie_info.price.toFixed(2)) + ' ГРН.'}</p>
+                <p className="movie_price">{price_display(movie_info.price)}</p>
             </div>
         </div>
         );

@@ -57,7 +57,7 @@ color: rgb(255, 215, 30);
 border: 2px solid rgb(255, 215, 30);
 transition-timing-function: ease-out;
 }
-input.search_input::placeholder {
+input::placeholder {
 color: rgb(255, 225, 95);
 font-weight: 100;
 }
@@ -118,17 +118,19 @@ div.movie_card {
 height: 450px;
 width: 650px;
 margin: 25px;
-border-radius: 25px;
+border-radius: 20px;
 padding: 20px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+}
+div.movie_card, div.booking_entry {
 background-color: rgb(30, 0, 60);
 box-shadow: 0 0 20px 5px rgb(0, 0, 0);
 transition: background-color 250ms, color 250ms, box-shadow 250ms; 
 transition-timing-function: ease-in;
 }
-div.movie_card:hover {
+div.movie_card:hover, div.booking_entry:hover {
 background-color: rgb(35, 0, 70);
 box-shadow: 0 0 10px 5px rgb(255, 215, 30);
 color: rgb(255, 215, 30);
@@ -144,7 +146,7 @@ height: 425px;
 img.movie_poster {
 width: 250px;
 height: 375px;
-border-radius: 10px;
+border-radius: 20px;
 user-select: none;
 border: 4px solid rgb(255, 225, 95);
 transition: border 250ms; 
@@ -154,16 +156,13 @@ div.movie_card:hover img.movie_poster {
 border: 4px solid rgb(255, 215, 30);
 transition-timing-function: ease-out;
 }
-p.movie_title {
-display: inline;
+p.movie_title, p.form_header {
 font-size: 45px;
 }
-p.movie_subtitle {
-display: inline;
+p.movie_subtitle, p.form_desc {
 font-size: 15px;
 }
 p.movie_price {
-display: inline;
 font-size: 30px;
 }
 div.schedule_section {
@@ -205,19 +204,21 @@ height: 1em;
 width: 1em;
 margin-left: 10px
 }
-div.search_input {
-width: 250px;
-height: 50px;
+div.search_input, div.form_input {
 display: flex;
 align-items: center;
-margin-left: 5px;
-margin-right: 5px;
 }
-input.search_input {
+input.search_input, input.form_input {
+padding-left: 45px;
 font-size: inherit;
+}
+div.search_input, input.search_input {
 width: 250px;
 height: 50px;
-padding-left: 45px;
+}
+div.search_input {
+margin-left: 5px;
+margin-right: 5px;
 }
 div.parameter_section {
 margin-left: 5px;
@@ -420,7 +421,7 @@ justify-content: center;
 text-align: center;
 font-size: 60px;
 }
-div.booking_main_content {
+div.cinema_main_content, div.booking_main_content {
 display: flex;
 flex-wrap: wrap;
 align-items: flex-start;
@@ -513,6 +514,70 @@ display: inline-flex;
 overflow-x: scroll;
 white-space: nowrap;
 }
+div.booking_list {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+div.booking_list_header {
+display: flex;
+align-items: center;
+font-size: 45px;
+margin-top: 15px;
+}
+div.booking_list_header span.unselect_all {
+width: 70px;
+height: 70px;
+}
+div.booking_entry {
+width: 600px;
+border-radius: 20px;
+padding: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 25px;
+}
+div.entry_header {
+display: flex;
+align-items: center;
+font-size: 40px;
+width: 550px;
+flex-wrap: nowrap;
+margin-bottom: 15px;
+}
+div.entry_seats {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-evenly;
+width: 550px;
+}
+div.entry_header a {
+display: flex;
+flex-direction: column;
+font-size: 30px;
+width: 475px;
+}
+div.booking_form {
+width: 600px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+div.form_input, input.form_input {
+width: 550px;
+height: 50px;
+}
+div.form_input {
+margin-bottom: 5px;
+margin-top: 10px;
+}
+button.form_button {
+font-size: 45px;
+width: 350px;
+height: 75px;
+}
 @keyframes appear {
     from {
     opacity: 0;
@@ -526,11 +591,10 @@ white-space: nowrap;
     font-size: 45px;
     height: 100px;
     }
-    div.search_input {
+    div.search_input, input.search_input, div.form_input, input.form_input {
     height: 75px;
     }
-    input.search_input {
-    height: 75px;
+    input.search_input, input.form_input {
     padding-left: 60px;
     }
     span.parameter_button {
@@ -606,12 +670,11 @@ white-space: nowrap;
     p.not_found {
     height: 750px;
     }
-    span.unselect_all {
-    width: 60px;
-    height: 60px;
-    }
     span.selected_seats_list {
     width: 300px;
+    }
+    div.form_input {
+    font-size: 45px;
     }
 }
 @media (max-width: 700px) {
@@ -628,7 +691,7 @@ white-space: nowrap;
     p.not_found {
     font-size: 45px;
     }
-    div.booking_main_content {
+    div.cinema_main_content, div.booking_main_content {
     flex-direction: column;
     align-items: center;
     }
@@ -640,5 +703,25 @@ white-space: nowrap;
     }
     span.selected_seats_list {
     width: 100px;
+    }
+    div.booking_entry {
+    width: 450px;
+    }
+    div.entry_header {
+    width: 400px;
+    }
+    div.entry_seats {
+    width: 400px;
+    font-size: 25px;
+    }
+    div.entry_header a {
+    font-size: 20px;
+    width: 325px;
+    }
+    div.booking_form {
+    width: 500px;
+    }
+    div.form_input, input.form_input {
+    width: 450px;
     }
 }

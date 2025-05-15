@@ -1,5 +1,5 @@
 ﻿import {useState, useEffect} from 'react';
-import {runtime_display, genre_display, showtime_display} from '../services/display_functions.js'
+import {runtime_display, genre_display, showtime_display, price_display} from '../services/display_functions.js'
 import Parameter_section from './Parameter_section'
 const all_movies = require('../data/movies.json');
 var min_price = null;
@@ -274,10 +274,10 @@ var all_genres = [];
                 </div>
                 <div className="range_values">
                     <p>
-                        {String(JSON.parse(filter).price[0].toFixed(2))} ГРН.
+                        {price_display(JSON.parse(filter).price[0])}
                     </p>
                     <p>
-                        {String(JSON.parse(filter).price[1].toFixed(2))} ГРН.
+                        {price_display(JSON.parse(filter).price[1])}
                     </p>
                 </div>
                 <p className="menu_title">

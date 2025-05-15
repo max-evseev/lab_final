@@ -1,10 +1,13 @@
-﻿    export function digit_fix(value) {
+﻿    function digit_fix(value) {
         if (value.length === 1) {
         return '0' + value;
         }
         else {
         return value;
         }
+    }
+    export function price_display(value) {
+    return String(value.toFixed(2)) + ' ГРН.';
     }
     export function runtime_display(value) {
     let minutes = value;
@@ -62,4 +65,14 @@
     }
     export function seat_display(row, column) {
     return 'Ряд ' + String(row + 1) + ' Місце ' + String(column + 1);
+    }
+    export function seat_list_display(value) {
+    let display_value = '';
+        value.forEach((seat, index) => {
+        display_value += seat_display(seat[0], seat[1]);
+            if (index !== value.length - 1) {
+            display_value += ', ';
+            }
+        });
+    return display_value;
     }
