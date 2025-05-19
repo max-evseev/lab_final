@@ -1,8 +1,11 @@
-﻿import {showtime_display, seat_display} from '../services/display_functions.js'
+﻿import {showtime_display, seat_display, price_display} from '../services/display_functions.js'
     export default function Booking_entry({entry, change_selected}) {
         function clear_selected() {
         localStorage.removeItem(entry.showtime);
         change_selected();
+        }
+        function total_price() {
+        return require('../data/movies.json').find(({ id }) => id === require('../data/show_schedule.json').find(({ showtime }) => showtime === entry.showtime).movie).price * entry.seats.length;
         }
         return (
         <div className="booking_entry">
@@ -12,12 +15,13 @@
                 </span>
                 <a href={'/booking/' + entry.showtime}>
                     <span>{showtime_display(entry.showtime)}</span>
-                    <span>{require('../data/movies.json').find(({ id }) => id === require('../data/show_schedule.json').find(({ showtime }) => showtime === entry.showtime).movie).display_name}</span>
+                    <span>{require('../data/movies.json').find(({id}) => id === require('../data/show_schedule.json').find(({showtime}) => showtime === entry.showtime).movie).display_name}</span>
                 </a>
             </div>
             <div className="entry_seats">
                 {entry.seats.map((seat) => <span>{seat_display(seat[0], seat[1])}</span>)}
             </div>
+            <p className="movie_price">Вартість: {price_display(total_price())}</p>
         </div>
         );
     }

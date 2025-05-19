@@ -163,6 +163,7 @@ p.movie_subtitle, p.form_desc {
 font-size: 15px;
 }
 p.movie_price {
+margin-top: 10px;
 font-size: 30px;
 }
 div.schedule_section {
@@ -200,8 +201,6 @@ position: relative;
 }
 img.input_icon {
 position: absolute;
-height: 1em;
-width: 1em;
 margin-left: 10px
 }
 div.search_input, div.form_input {
@@ -238,7 +237,7 @@ justify-content: center;
 border: 2px solid rgb(255, 225, 95);
 border-radius: 20px;
 }
-span.parameter_button img, span.check_button img, span.unselect_all img {
+span.parameter_button img, span.check_button img, span.unselect_all img, div.validity_section img, img.input_icon {
 width: 1em;
 height: 1em;
 user-select: none;
@@ -571,12 +570,30 @@ height: 50px;
 }
 div.form_input {
 margin-bottom: 5px;
-margin-top: 10px;
+margin-top: 5px;
 }
 button.form_button {
 font-size: 45px;
 width: 350px;
 height: 75px;
+transition: background-color 250ms, color 250ms;
+transition-timing-function: ease-out;
+}
+button.form_button.locked {
+cursor: default;
+background-color: rgb(20, 0, 40);
+color: rgb(35, 0, 70);
+transition-timing-function: ease-in;
+}
+div.validity_section {
+display: flex;
+align-items: center;
+font-size: 20px;
+width: 550px;
+margin-bottom: 10px;
+}
+div.validity_section img {
+margin-right: 10px;
 }
 @keyframes appear {
     from {
@@ -721,7 +738,7 @@ height: 75px;
     div.booking_form {
     width: 500px;
     }
-    div.form_input, input.form_input {
+    div.form_input, input.form_input, div.validity_section {
     width: 450px;
     }
 }

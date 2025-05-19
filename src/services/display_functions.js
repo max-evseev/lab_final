@@ -76,3 +76,11 @@
         });
     return display_value;
     }
+    export function validity_display(value) {
+        switch (value) {
+        case 'empty': return 'Поле пусте';
+        break;
+        case 'valid': return 'Дані введено правильно';
+        break;
+        }
+    }

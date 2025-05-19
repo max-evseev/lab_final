@@ -13,14 +13,15 @@ export const booking_context = React.createContext();
     }
     function localstorage_validation() {
         for (let i = 0; i <= localStorage.length - 1; i++) {
+        let destroy_entry = false;
             if (require('../data/show_schedule.json').findIndex(item => item.showtime === Object.entries(localStorage)[i][0]) === -1) {
-            localStorage.removeItem(Object.entries(localStorage)[i][0]);
+            destroy_entry = true;
             }
             else {
                 try {
                 JSON.parse(Object.entries(localStorage)[i][1]);
                     if (!Array.isArray(JSON.parse(Object.entries(localStorage)[i][1]))) {
-                    localStorage.removeItem(Object.entries(localStorage)[i][0]);
+                    destroy_entry = true;
                     }
                     else {
                         JSON.parse(Object.entries(localStorage)[i][1]).forEach((seat) => {
@@ -31,13 +32,62 @@ export const booking_context = React.createContext();
                             }
                         });
                         if (JSON.parse(Object.entries(localStorage)[i][1]).length === 0) {
-                        localStorage.removeItem(Object.entries(localStorage)[i][0]);
+                        destroy_entry = true;
                         }
                     }
                 } catch (e) {
-                localStorage.removeItem(Object.entries(localStorage)[i][0]);
+                destroy_entry = true;
                 }
+
             }
+            if (destroy_entry) {
+            localStorage.removeItem(Object.entries(localStorage)[i][0]);
+            }
+            else {
+            let new_array = JSON.parse(Object.entries(localStorage)[i][1]);
+                new_array.sort((a, b) => {
+                    if (a[0] < b[0] || (a[0] === b[0] && a[1] < b[1])) {
+                    return -1;
+                    }
+                    else if (a[0] > b[0] || (a[0] === b[0] && a[1] > b[1])) {
+                    return 1;
+                    }
+                    else {
+                    return 0;
+                    }
+                });
+            localStorage.setItem(Object.entries(localStorage)[i][0], JSON.stringify(new_array));
+            }
+        }
+    }
+    export function name_validity(value) {
+        if (value === '') {
+        return 'empty';
+        }
+        else {
+        return 'valid';
+        }
+    }
+    export function email_validity(value) {
+        if (value === '') {
+        return 'empty';
+        }
+        else {
+        return 'valid';
+        }
+    }
+    export function phone_validity(value) {
+        if (value === '') {
+        return 'empty';
+        }
+        else if (value.length < 13) {
+        return 'phone_too_short';
+        }
+        else if (value.length > 13) {
+        return 'phone_too_long';
+        }
+        else {
+        return 'valid';
         }
     }
     export function Context_provider({children}) {
