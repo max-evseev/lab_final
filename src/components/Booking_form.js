@@ -35,7 +35,7 @@ import {useState} from 'react'
             </div>
             <div className="form_input">
                 <img className="input_icon" src={require('../icons/mail.png')} draggable="false" alt=""></img>
-                <input className="form_input" placeholder="Пошта" value={email} onChange={(e) => set_email(e.target.value.trim())}></input>
+                <input className="form_input" placeholder="Пошта" value={email} onChange={(e) => set_email(e.target.value.trim().toLowerCase())}></input>
             </div>
             <div className="validity_section">
                 <img src={require('../icons/' + validity_icon(email_validity(email)) +'.png')} draggable="false" alt=""></img>

@@ -64,13 +64,64 @@ export const booking_context = React.createContext();
         if (value === '') {
         return 'empty';
         }
+        else if (value.search(/[a-zA-Z]/) !== -1) {
+        return 'name_latin';
+        }
+        else if (value.search(/[0-9]/) !== -1) {
+        return 'name_number';
+        }
+        else if (!(value.search(/\W|_/) !== -1 && value.search(/[ёЁыЫъЪ]/) === -1 && value.search(/[А-Яа-яіІїЇґҐ\s]/) !== -1)) {
+        return 'name_symbol';
+        }
         else {
         return 'valid';
         }
     }
     export function email_validity(value) {
+    const username = value.substring(0, value.search(/@/));
+    const domain = value.substring(value.search(/@/) + 1, value.length);
+        console.log(username)
         if (value === '') {
         return 'empty';
+        }
+        else if (value.search(/@/) === -1) {
+        return 'email_no_at';
+        }
+        else if (value.match(/@/g).length > 1) {
+        return 'email_multiple_at';
+        }
+        else if (username.length === 0) {
+        return 'email_no_username';
+        }
+        else if (username[0] === '-' || username[username.length - 1] === '-' === 0 || username[0] === '_' || username[username.length - 1] === '_' === 0 || username[0] === '.' || username[username.length - 1] === '.' === 0) {
+        return 'email_username_delimiters_only_inbetween';
+        }
+        else if (username.search(/[-_\.]{2,}/) !== -1) {
+        return 'email_username_one_delimiter_at_time';
+        }
+        else if (username.search(/[^a-z0-9-_\.]/) !== -1) {
+        return 'email_username_invalid_symbols';
+        }
+        else if (domain.length === 0) {
+        return 'email_no_domain';
+        }
+        else if (domain.search(/\./) === -1) {
+        return 'email_domain_no_dot';
+        }
+        else if (domain[0] === '.' || domain[domain.length - 1] === '.') {
+        return 'email_domain_dots_only_inbetween';
+        }
+        else if (domain.search(/\.{2,}/) !== -1) {
+        return 'email_domain_one_dot_at_time';
+        }
+        else if (domain[0] === '-' || domain[domain.length - 1] === '-' || domain.search(/\.-|-\./) !== -1) {
+        return 'email_domain_dash_only_inbetween';
+        }
+        else if (domain.search(/-{2,}/) !== -1) {
+        return 'email_domain_one_dash_at_time';
+        }
+        else if (domain.search(/[^a-z-\.]/) !== -1) {
+        return 'email_domain_invalid_symbols';
         }
         else {
         return 'valid';
@@ -85,6 +136,12 @@ export const booking_context = React.createContext();
         }
         else if (value.length > 13) {
         return 'phone_too_long';
+        }
+        else if (value.search(/^\+380/) !== 0) {
+        return 'phone_invalid_beginning';
+        }
+        else if (value.substring(1, value.length).search(/[^0-9]/) !== -1) {
+        return 'phone_symbol';
         }
         else {
         return 'valid';
