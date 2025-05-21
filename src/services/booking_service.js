@@ -66,7 +66,7 @@ export const booking_context = React.createContext();
         if (value === '') {
         return 'empty';
         }
-        else if (value.search(/[^А-Яа-яіІїЇґҐ'\s]/) !== -1 || value.search(/[ёЁъЪыЫэЭ]/) !== -1) {
+        else if (value.search(/[^А-Яа-яіІїЇґҐєЄ'\s]/) !== -1 || value.search(/[ёЁъЪыЫэЭ]/) !== -1) {
         return 'name_symbol';
         }
         else if (value[0] === '\'' || value[value.length - 1] === '\'') {
