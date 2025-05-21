@@ -10,7 +10,7 @@ import {Context_provider} from './services/booking_service'
     {
     path: '/booking/:showtime',
     element: <Cinema/>,
-    errorElement: <p className="not_found">На цей час сеанси відсутні</p>
+    errorElement: <p className="text_message">На цей час сеанси відсутні</p>
     },
     {
     path: '/booking',

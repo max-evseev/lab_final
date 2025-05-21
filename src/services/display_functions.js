@@ -80,11 +80,13 @@
         switch (value) {
         case 'empty': return 'Поле пусте';
         break;
-        case 'name_latin': return 'Містить латиницю (Використовуйте А-Я)';
+        case 'name_symbol': return 'Містить символи (Використовуйте українську кирилицю А-Я)';
         break;
-        case 'name_number': return 'Містить числа (Використовуйте А-Я)';
+        case 'name_apostrophe_only_inbetween': return 'Апостроф може лише бути в середині імені';
         break;
-        case 'name_symbol': return 'Містить символи (Використовуйте А-Я)';
+        case 'name_one_apostrophe_at_time': return 'Ім\'я не може містити кількох апострофів підряд';
+        break;
+        case 'name_one_space_at_time': return 'Ім\'я не може містити кількох пробілів підряд';
         break;
         case 'email_no_at': return 'Повинен містити символ "@"';
         break;
@@ -121,6 +123,34 @@
         case 'phone_symbol': return 'Містить символи (Використовуйте 0-9)';
         break;
         case 'valid': return 'Дані введено правильно';
+        break;
+        }
+    }
+    export function status_display(value) {
+        switch (value) {
+        case 0: return 'Ви не обрали жодного місця';
+        break;
+        case 102: return 'Зачекайте будь-ласка...';
+        break;
+        case 201: return 'Бронювання пройшло успішно, ваші квитки було надіслано на пошту. Не забудьте підтвердити бронювання на касі!';
+        break;
+        case 400: return 'З вашої сторони було надіслано некоректні дані';
+        break;
+        case 401: return 'У вас немає повноважень на цю дію';
+        break;
+        case 403: return 'Ви не надали ваші дані';
+        break;
+        case 404: return 'Сеанс, на який ви намагаєтесь забронювати місце, відсутній';
+        break;
+        case 405: return 'Ви намагаєтесь здійснити заборонену дію';
+        break;
+        case 409: return 'Певні місця, які ви намагаєтесь забронювати, недоступні';
+        break;
+        case 410: return 'Сталась помилка доступу до бази даних сеансів';
+        break;
+        case 500: return 'Сталась непередбачена помилка на сервері';
+        break;
+        case 501: return 'Ви намагаєтесь здійснити неіснуючу на сервері дію';
         break;
         }
     }

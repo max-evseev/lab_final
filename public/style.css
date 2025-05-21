@@ -12,7 +12,7 @@ font-weight: 600;
 p {
 margin: 0;
 }
-div, button, input, header, span, img, a {
+div, button, input, header, span, img, a, p {
 box-sizing: border-box;
 }
 span.clickable {
@@ -411,14 +411,15 @@ background-color: rgb(255, 225, 95);
 color: rgb(20, 0, 40);
 transition-timing-function: ease-out;
 }
-p.not_found {
+p.text_message {
 height: 600px;
 width: 100vw;
 display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
-font-size: 60px;
+padding-left: 25px;
+padding-right: 25px;
 }
 div.cinema_main_content, div.booking_main_content {
 display: flex;
@@ -684,7 +685,7 @@ margin-right: 10px;
     width: 450px;
     height: 60px;
     }
-    p.not_found {
+    p.text_message {
     height: 750px;
     }
     span.selected_seats_list {
@@ -705,7 +706,7 @@ margin-right: 10px;
     div.parameter_menu.sort {
     left: -335px;
     }
-    p.not_found {
+    p.text_message {
     font-size: 45px;
     }
     div.cinema_main_content, div.booking_main_content {

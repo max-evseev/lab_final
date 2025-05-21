@@ -9,6 +9,9 @@ export const booking_context = React.createContext();
             seats: JSON.parse(Object.entries(localStorage)[i][1])
             });
         }
+        if (list.length > 0) {
+        sessionStorage.clear();
+        }
     return JSON.stringify(list);
     }
     function localstorage_validation() {
@@ -38,7 +41,6 @@ export const booking_context = React.createContext();
                 } catch (e) {
                 destroy_entry = true;
                 }
-
             }
             if (destroy_entry) {
             localStorage.removeItem(Object.entries(localStorage)[i][0]);
@@ -64,14 +66,17 @@ export const booking_context = React.createContext();
         if (value === '') {
         return 'empty';
         }
-        else if (value.search(/[a-zA-Z]/) !== -1) {
-        return 'name_latin';
-        }
-        else if (value.search(/[0-9]/) !== -1) {
-        return 'name_number';
-        }
-        else if (!(value.search(/\W|_/) !== -1 && value.search(/[ёЁыЫъЪ]/) === -1 && value.search(/[А-Яа-яіІїЇґҐ\s]/) !== -1)) {
+        else if (value.search(/[^А-Яа-яіІїЇґҐ'\s]/) !== -1 || value.search(/[ёЁъЪыЫэЭ]/) !== -1) {
         return 'name_symbol';
+        }
+        else if (value[0] === '\'' || value[value.length - 1] === '\'') {
+        return 'name_apostrophe_only_inbetween';
+        }
+        else if (value.search(/'{2,}/) !== -1) {
+        return 'name_one_apostrophe_at_time';
+        }
+        else if (value.search(/\s{2,}/) !== -1) {
+        return 'name_one_space_at_time';
         }
         else {
         return 'valid';
@@ -80,7 +85,6 @@ export const booking_context = React.createContext();
     export function email_validity(value) {
     const username = value.substring(0, value.search(/@/));
     const domain = value.substring(value.search(/@/) + 1, value.length);
-        console.log(username)
         if (value === '') {
         return 'empty';
         }
@@ -93,7 +97,7 @@ export const booking_context = React.createContext();
         else if (username.length === 0) {
         return 'email_no_username';
         }
-        else if (username[0] === '-' || username[username.length - 1] === '-' === 0 || username[0] === '_' || username[username.length - 1] === '_' === 0 || username[0] === '.' || username[username.length - 1] === '.' === 0) {
+        else if (username[0] === '-' || username[username.length - 1] === '-' || username[0] === '_' || username[username.length - 1] === '_'|| username[0] === '.' || username[username.length - 1] === '.') {
         return 'email_username_delimiters_only_inbetween';
         }
         else if (username.search(/[-_\.]{2,}/) !== -1) {
@@ -145,6 +149,18 @@ export const booking_context = React.createContext();
         }
         else {
         return 'valid';
+        }
+    }
+    export async function commit_booking(value) {
+        try {
+        const response = await fetch('/update_list', {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: value
+            });
+        return response.status;
+        } catch (error) {
+        return 500;
         }
     }
     export function Context_provider({children}) {
